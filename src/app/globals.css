@@ -32,9 +32,9 @@ a {
  
 
 }
-img {
+/* img {
   @apply mr-[1.5rem] ;
-}
+} */
 .two-color-split{
   background: linear-gradient(-78deg, black 50%, var(--primary) 50%)
 }
