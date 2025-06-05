@@ -4,7 +4,7 @@ export const ProjectDetails = [
         ProjectDetails:" A Game I created using HTML, CSS and JavaScipt which involves storing numbers in a count and restarting when the random number picked is 0",
         ProjectImage: "/PigGame.png",
         ProjectContribution:"AUTHOR",
-        ProjectLink:"https://pig-games2-ilodl48bo-joshs-projects-655a25cc.vercel.app/",
+        ProjectLink:"https://pig-games2.vercel.app/",
         ProjectGitHubLink:"https://github.com/Joshking21/pigGames2",
         ProjectLanguagesSource:['/file.svg','/file.svg','/file.svg']
     },
@@ -13,7 +13,7 @@ export const ProjectDetails = [
         ProjectDetails:" A bank project that i worked on integrating lazy loading and optimixation in it",
         ProjectImage:"/Bankist.png",
          ProjectContribution:"AUTHOR",
-        ProjectLink:"https://new-bank-project-l27iuldk0-joshs-projects-655a25cc.vercel.app/",
+        ProjectLink:"https://newbank-delta.vercel.app/",
         ProjectGitHubLink:"https://github.com/Joshking21/NewBankProject",
         ProjectLanguagesSource:['/file.svg','/file.svg','/file.svg']
     },
