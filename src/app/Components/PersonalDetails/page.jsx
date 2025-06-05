@@ -37,7 +37,7 @@ return(
     </div>
 
     <div>
-        <Image src="/" alt="alt" width={20} height={20} />
+        <Image src="/" alt="alt" width={300} height={300} />
     </div>
 
 

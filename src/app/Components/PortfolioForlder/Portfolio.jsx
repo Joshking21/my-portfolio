@@ -1,10 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
+import MotionFadeInSection from "@/app/Framer-Motion/Motion";
 
 import WorkExp from "./Portfolio.WorkExperience"
 import Port from "./Portfolio.Project"
 export default function Portfolio(){
     return(
+<MotionFadeInSection>
         <div className="flex   flex-col bg-[var(--primary)] items-center text-center ">
             <div className="border-solid border-[2px] pt-[0.2rem] pb-[0.2rem] pl-[2rem] pr-[2rem]  border-black mt-[3rem] mb-[3rem]">
                 PORTFOLIO
@@ -33,5 +35,6 @@ export default function Portfolio(){
 
             </div>
         </div>
+        </MotionFadeInSection>
     )
 }

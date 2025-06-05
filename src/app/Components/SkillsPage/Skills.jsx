@@ -2,12 +2,13 @@
 import { SkillDetails } from "@/app/lib/User.SkillsData"
 import { LearningDetails } from "@/app/lib/User.SkillsData"
 import Image from "next/image"
-
+import MotionFadeInSection from "@/app/Framer-Motion/Motion";
 
 
 
 export default function Skills(){
     return(
+        <MotionFadeInSection>
         <div className="justify-center items-center flex flex-col">
             <div className=" w-[40%]">
             <div className="pt-[1rem]">
@@ -46,6 +47,8 @@ export default function Skills(){
 
 
         </div>
+        </MotionFadeInSection>
+        
     )
 }
 
@@ -56,6 +59,7 @@ export default function Skills(){
 
 function SkillLiist({Skills}) {
     return( <>
+   
  { Skills.map((item, index) =>(
 
             <div key={item.PhotoText} className="mb-[3rem] mr-[3rem] " >
@@ -71,6 +75,8 @@ function SkillLiist({Skills}) {
             </div>
 
     ))
-          }</>
+          }
+          
+          </>
     )
 }
