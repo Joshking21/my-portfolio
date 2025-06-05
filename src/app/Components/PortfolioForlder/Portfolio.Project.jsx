@@ -1,4 +1,4 @@
-import { ProjectDetails } from "@/app/lib/User.Project";
+import { ProjectDetails } from "../../lib/User.Project";
 import Image from "next/image";
 import Link from "next/link";
 

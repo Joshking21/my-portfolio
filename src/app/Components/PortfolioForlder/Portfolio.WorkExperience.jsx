@@ -1,4 +1,4 @@
-import { WorkExperienceDetails } from "@/app/lib/User.Project";
+import { WorkExperienceDetails } from "../../lib/User.Project";
 
 export default function WorkExp() {
   return (
