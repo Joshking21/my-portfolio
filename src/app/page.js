@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HomePageDetails from "./Components/homePage/page";
+import HomePageDetails from "./Components/homePage/homePage";
 import './globals.css'
 import AboutMe from "./Components/aboutMeSection/aboutMe";
 import Skills from "./Components/skillsPage/skills";

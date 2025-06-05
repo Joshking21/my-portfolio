@@ -1,5 +1,5 @@
 
-import HomePersonalDetails from "../personalDetails/page";
+import HomePersonalDetails from "../personalDetails/personalDetails";
 
 
 export default function HomePageDetails(){
