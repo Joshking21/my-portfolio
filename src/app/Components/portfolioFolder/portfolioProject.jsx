@@ -8,7 +8,7 @@ export default function Port() {
       {ProjectDetails.map((item, index) => (
         <div
           key={index}
-          className="mb-[3rem] w-[30%] h-[400px]  bg-cover bg-[var(--primary)] bg-center bg-no-repeat flex "
+          className="mb-[3rem] w-[30%] h-[400px]  bg-cover bg-[var(--primary)] bg-center bg-no-repeat flex hover:bg-transparent "
           //   style={{backgroundImage:`url(${item.ProjectImage})` }}
         >
           <div className="w-full   text-left p-[1rem]">

@@ -18,17 +18,7 @@ export default function HomePersonalDetails() {
           </MotionFadeLeftSection>
         </div>
         <div className="flex mb-[3rem]">
-          {SocialLink.map((item, index) => (
-            <div key={index} className="mr-[1.5rem]">
-              <Image
-                className=""
-                src={item.photosource}
-                alt={item.alt}
-                width={30}
-                height={index === 0 ? 30 : 10}
-              />
-            </div>
-          ))}
+         <SocialImage SocialPhotos={SocialLink}/>
 
           {/* <Image src="/icons8-facebook.svg" alt="alt" width={30} height={30} />
     <Image src="/Github.png" alt="alt" width={30} height={10} />
@@ -41,4 +31,24 @@ export default function HomePersonalDetails() {
       </div>
     </div>
   );
+}
+
+
+export function SocialImage({SocialPhotos}){
+  return(
+    <>
+  {SocialPhotos.map((item, index) => (
+            <div key={index} className="mr-[1.5rem]">
+              <Image
+                className=""
+                src={item.photosource}
+                alt={item.alt}
+                width={30}
+                height={index === 0 ? 30 : 10}
+              />
+            </div>
+          ))}
+          </>
+        )
+
 }

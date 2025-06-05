@@ -4,6 +4,8 @@ import './globals.css'
 import AboutMe from "./Components/aboutMeSection/aboutMe";
 import Skills from "./Components/skillsPage/skillsPage";
 import Portfolio from "./Components/portfolioFolder/portfolio";
+import Contacts from "./contacts/contacts";
+import Footer from "./footer/footer";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
 <AboutMe/>
 <Skills/>
 <Portfolio/>
+<Contacts/>
+<Footer/>
 
  
      </div>
