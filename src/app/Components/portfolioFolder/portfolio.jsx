@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import MotionFadeInSection from "../../Framer-Motion/Motion";
+import MotionFadeInSection from "../../framerMotion/motion";
 
 import WorkExp from "./portfolioWorkExperience"
 import Port from "./portfolioProject"
