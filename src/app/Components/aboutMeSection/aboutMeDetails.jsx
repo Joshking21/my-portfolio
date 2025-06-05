@@ -1,4 +1,4 @@
-import { AboutMeDetails } from "@/app/lib/user.data";
+import { AboutMeDetails } from "@/app/lib/userData";
 
 export default function AboutMeDetailsSection() {
   return (

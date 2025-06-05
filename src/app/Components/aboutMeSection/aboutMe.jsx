@@ -1,5 +1,5 @@
-import { AboutMeSection } from "@/app/lib/user.data";
-import { ExploreItems } from "@/app/lib/user.data";
+import { AboutMeSection } from "@/app/lib/userData";
+import { ExploreItems } from "@/app/lib/userData";
 import AboutMeDetailsSection from "./aboutMeDetails";
 import MotionFadeInSection from "@/app/framerMotion/motion";
 export default function AboutMe() {

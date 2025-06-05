@@ -1,6 +1,6 @@
 "use client";
-import { SkillDetails } from "@/app/lib/user.skillsData";
-import { LearningDetails } from "@/app/lib/user.skillsData";
+import { SkillDetails } from "@/app/lib/userSkillsData";
+import { LearningDetails } from "@/app/lib/userSkillsData";
 import Image from "next/image";
 import MotionFadeInSection from "@/app/framerMotion/motion";
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { SocialLink } from "@/app/lib/user.skillsData";
-import { ExploreItems } from "@/app/lib/user.data";
+import { SocialLink } from "@/app/lib/userSkillsData";
+import { ExploreItems } from "@/app/lib/userData";
 import { MotionFadeLeftSection } from "@/app/framerMotion/motion";
 export default function HomePersonalDetails() {
   return (
