@@ -2,8 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import MotionFadeInSection from "@/app/Framer-Motion/Motion";
 
-import WorkExp from "./Portfolio.WorkExperience"
-import Port from "./Portfolio.Project"
+import WorkExp from "./portfolioWorkExperience"
+import Port from "./portfolioProject"
 export default function Portfolio(){
     return(
 <MotionFadeInSection>

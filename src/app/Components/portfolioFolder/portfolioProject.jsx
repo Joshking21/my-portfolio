@@ -1,4 +1,4 @@
-import { ProjectDetails } from "../../lib/User.Project";
+import { ProjectDetails } from "../../lib/user.project";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,13 +9,11 @@ export default function Port() {
         <div
           key={index}
           className="mb-[3rem] w-[30%] h-[400px]  bg-cover bg-[var(--primary)] bg-center bg-no-repeat flex "
-        //   style={{backgroundImage:`url(${item.ProjectImage})` }}
+          //   style={{backgroundImage:`url(${item.ProjectImage})` }}
         >
-           
           <div className="w-full   text-left p-[1rem]">
-            
             <div className=" font-bold text-[2rem]">{item.ProjectName}</div>
-            
+
             <div className="border-solid boder-[5rem] p-[0.5rem] border-black mb-[1rem] ">
               {item.ProjectContribution}
             </div>
