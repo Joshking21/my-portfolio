@@ -4,6 +4,8 @@ import { LearningDetails } from "@/app/lib/User.SkillsData"
 import Image from "next/image"
 
 
+
+
 export default function Skills(){
     return(
         <div className="justify-center items-center flex flex-col">

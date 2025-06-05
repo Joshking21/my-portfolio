@@ -1,5 +1,6 @@
 import { AboutMeSection } from "@/app/lib/User.data.";
 import { ExploreItems } from "@/app/lib/User.data.";
+import AboutMeDetailsSection from "./AboutMe.Details";
 export default function AboutMe() {
 
   return (
@@ -11,6 +12,8 @@ export default function AboutMe() {
       <div className=" mainClass text-centre  w-1/2 ">
     {AboutMeSection.AboutDesc}
       </div>
+<AboutMeDetailsSection/>
+
       <div className=" border-l-solid border-l-[2px] border-r-solid border-r-[2px] pl-[1rem] pr-[1rem] mt-[4rem]  ">
         EXPLORE
       </div>

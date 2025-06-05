@@ -1,11 +1,11 @@
-import Navigation from "../Navigation/page";
+
 import HomePersonalDetails from "../PersonalDetails/page";
 
 
 export default function HomePageDetails(){
     return(
         <div className=" h-full two-color-split ">
-        <Navigation/>
+        
 <HomePersonalDetails/>
 </div>
     )

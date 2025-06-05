@@ -17,4 +17,23 @@ export const AboutMeSection =
           desc : " saint Lorem"
         },]
 
-    
+        export const AboutMeDetails = [
+          {
+          title: "Language",
+          desc : " English"
+        },
+          {
+          title: "Nationality",
+          desc : "Nigeria"
+        },
+        {
+          title: "Gender",
+          desc : "Male"
+        },
+          {
+          title: "Hobbies",
+          // desc : ["Coding","Working with my hands","Generator Engine Repairs","Listening to Music","Playing Video Games","Playing Snooker"]
+          desc: "Coding",
+          },
+
+      ]
