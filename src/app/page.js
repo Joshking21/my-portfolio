@@ -2,7 +2,7 @@ import Image from "next/image";
 import HomePageDetails from "./Components/homePage/homePage";
 import './globals.css'
 import AboutMe from "./Components/aboutMeSection/aboutMe";
-import Skills from "./Components/skillsPage/skills";
+import Skills from "./Components/skillsPage/skillsPage";
 import Portfolio from "./Components/portfolioFolder/portfolio";
 
 export default function Home() {
