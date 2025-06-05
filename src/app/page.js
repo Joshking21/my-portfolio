@@ -7,13 +7,13 @@ import Portfolio from "./Components/PortfolioForlder/Portfolio";
 
 export default function Home() {
   return (
-     <>
+     <div className="bg-[var(--primary)]">
 <HomePageDetails/>
 <AboutMe/>
 <Skills/>
 <Portfolio/>
 
  
-     </>
+     </div>
   );
 }

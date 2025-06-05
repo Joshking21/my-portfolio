@@ -1,9 +1,11 @@
 import { AboutMeSection } from "@/app/lib/User.data.";
 import { ExploreItems } from "@/app/lib/User.data.";
 import AboutMeDetailsSection from "./AboutMe.Details";
+import MotionFadeInSection from "@/app/Framer-Motion/Motion";
 export default function AboutMe() {
 
   return (
+<MotionFadeInSection>
     <div className="flex   flex-col bg-[var(--primary)] items-center text-center ">
       <div className=" p-[0.3rem] pl-[1.5rem] pr-[1.5rem] border-solid border-[3px] mt-[2rem] mb-[3rem]">
        {AboutMeSection.AboutTitle}
@@ -31,5 +33,6 @@ export default function AboutMe() {
         ))}
       </div>
     </div>
+    </MotionFadeInSection>
   );
 }

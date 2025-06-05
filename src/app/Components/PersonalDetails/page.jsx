@@ -1,14 +1,18 @@
 import Image from "next/image"
 import { SocialLink } from "@/app/lib/User.SkillsData"
 import { ExploreItems } from "@/app/lib/User.data."
+import { MotionFadeLeftSection } from "@/app/Framer-Motion/Motion"
 export default function HomePersonalDetails(){
 return(
-    <div className="flex mt-[5rem]">
+    <div className="flex ">
     <div className="w-1/2  flex flex-col items-center text-left pt-[2rem] text-[2rem] mt-[2rem]">
     <div className="mb-[6rem]">
-        <div className="mb-[2rem] font-semibold">Hi, I am</div>
+        <MotionFadeLeftSection>
+        <div className="mb-[2rem] font-semibold">Hi, I am</div></MotionFadeLeftSection>
         <div className="font-bold"> Joshua Oduoma</div>
+<MotionFadeLeftSection>
         <div className="font-semibold  font-sans text-[1rem]">Front-end Developer</div>
+        </MotionFadeLeftSection>
 </div>
 <div className="flex mb-[3rem]">
 {
