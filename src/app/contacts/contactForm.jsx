@@ -8,7 +8,7 @@ export default function ContactForm(){
                      type={items.type} placeholder={items.placeholder} className=" mb-[1.5rem] focus:outline-none pb-[0.7rem] placeholder:text-[0.8rem] placeholder:font-semibold w-full   border-l-solid border-l-[2px] border-b-solid border-b-[2px]"></input>}
                 </div>
                ))}
-               <button type="submit"className="border-l-solid border-l-[1px] border-r-solid border-r-[1px] p-[2px] pl-[2rem] pr-[2rem] font-bold text-[0.7rem]" >SUBMIT</button>
+               <button type="submit"className="border-l-solid border-l-[1px] border-r-solid border-r-[1px] p-[2px] pl-[2rem] pr-[2rem] font-bold text-[0.7rem] hover:opacity-70" >SUBMIT</button>
         </form>
 
     )
