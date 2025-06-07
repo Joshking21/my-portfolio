@@ -30,7 +30,7 @@ export const SkillDetails = [
         PhotoText: "GIT"
     },
      {
-        PhotoSource:"/gitHub.png",
+        PhotoSource:"/githubLogo.png",
         PhotoText: "GITHUB"
     },
      {
@@ -67,7 +67,7 @@ export const SocialLink = [
         link:"https://web.facebook.com/JoshtheOG",
     },
     {
-        photosource: "/github.png",
+        photosource: "/githubLogo.png",
         alt: "Github Logo",
         link:"https://github.com/Joshking21"
     },
