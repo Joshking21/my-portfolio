@@ -54,7 +54,7 @@ export const LearningDetails = [
         PhotoText: "TYPESCRIPT"
     },
      {
-        PhotoSource:"/MongoDb.png",
+        PhotoSource:"/mongoDb.png",
         PhotoText: "MONGODB"
     },
     
@@ -67,7 +67,7 @@ export const SocialLink = [
         link:"https://web.facebook.com/JoshtheOG",
     },
     {
-        photosource: "/Github.png",
+        photosource: "/github.png",
         alt: "Github Logo",
         link:"https://github.com/Joshking21"
     },
@@ -80,7 +80,7 @@ export const SocialLink = [
 
 export const SocialLinkWhite = [
     {
-        photosource: "/faceBookWhite.png",
+        photosource: "/facebookWhite.png",
         alt: "Facebook Logo",
         link:"https://web.facebook.com/JoshtheOG",
     },
