@@ -38,7 +38,7 @@ export default function Port({isActive}) {
                     ))}
                   </div>
                   <div className=" flex  justify-center   ">
-                    <Link href={item.ProjectGitHubLink} className="hover:opacity-70">
+                    <Link href={item.ProjectGitHubLink} className="hover:opacity-70  w-[30%] flex items-center justify-center">
                       {" "}
                       <Image
                         src="/gitHubWhite.png"
@@ -48,7 +48,7 @@ export default function Port({isActive}) {
                       />
                     </Link>
 
-                    <div className="w-[50%] border-solid border-l-[4px] border-r-[4px] border-[var(--primary)] flex justify-center items center hover:opacity-70">
+                    <div className="w-[50%]  border-solid border-l-[4px] border-r-[4px] border-[var(--primary)] flex justify-center items center hover:opacity-70">
                       <Link href={item.ProjectLink} className="" >PREVIEW</Link>
                     </div>
                   </div>
