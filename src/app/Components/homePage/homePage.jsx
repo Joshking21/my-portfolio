@@ -4,7 +4,7 @@ import HomePersonalDetails from "../personalDetails/personalDetails";
 
 export default function HomePageDetails(){
     return(
-        <div className=" h-full two-color-split ">
+        <div className=" h-screen border-b-solid border-b-[1px] lg:border-none two-color-split two-color-split-vertical " id="homepage">
         
 <HomePersonalDetails/>
 </div>

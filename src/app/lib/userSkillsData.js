@@ -2,59 +2,59 @@
 
 export const SkillDetails = [
     {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/html5.png",
         PhotoText: "HTML5"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/css3.png",
         PhotoText: "CSS3"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/sass.png",
         PhotoText: "SASS"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/react.png",
         PhotoText: "REACT"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/nextJs.png",
         PhotoText: "NEXT"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/tailWind.png",
         PhotoText: "TAILWIND"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/git.png",
         PhotoText: "GIT"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/gitHub.png",
         PhotoText: "GITHUB"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/java.png",
         PhotoText: "JAVA"
     }
 ]
 
 export const LearningDetails = [
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/nodeJs.png",
         PhotoText: "NODEJS"
     },
     
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/mySql.png",
         PhotoText: "MySQL"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/typeScript.png",
         PhotoText: "TYPESCRIPT"
     },
      {
-        PhotoSource:"/file.svg",
+        PhotoSource:"/MongoDb.png",
         PhotoText: "MONGODB"
     },
     
@@ -63,14 +63,35 @@ export const LearningDetails = [
 export const SocialLink = [
     {
         photosource: "/icons8-facebook.svg",
-        alt: "Facebook Logo"
+        alt: "Facebook Logo",
+        link:"https://web.facebook.com/JoshtheOG",
     },
     {
         photosource: "/Github.png",
-        alt: "Github Logo"
+        alt: "Github Logo",
+        link:"https://github.com/Joshking21"
     },
     {
         photosource: "/Twitter.png",
-        alt: "Twitter Logo"
+        alt: "Twitter Logo",
+        link:"https://x.com/Joshking2105"
+    }
+]
+
+export const SocialLinkWhite = [
+    {
+        photosource: "/faceBookWhite.png",
+        alt: "Facebook Logo",
+        link:"https://web.facebook.com/JoshtheOG",
+    },
+    {
+        photosource: "/gitHubWhite.png",
+        alt: "Github Logo",
+        link:"https://github.com/Joshking21"
+    },
+    {
+        photosource: "/twitterWhite.png",
+        alt: "Twitter Logo",
+        link:"https://x.com/Joshking2105"
     }
 ]

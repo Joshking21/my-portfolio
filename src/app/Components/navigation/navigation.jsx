@@ -28,19 +28,44 @@ export default function Navigation(){
     return(
         <div  className={`fixed top-0 w-full transition-transform duration-300 ease-in-out bg-white/80 z-50 ${
     ShowNav ? 'translate-y-0' : '-translate-y-full'
-  } flex justify-between  ` } >
+  } flex justify-between ` } >
            
-            <div className='font-extrabold text-[2rem]  ml-[6rem] '>JBOBO</div>
-            <div className='mr-10   flex'>
-                <Link href="/" className=' flex  items-center'>About me</Link>
-              <Link href="/" className=' flex  items-center'>Skills</Link>
-              <Link href="/" className=' flex  items-center'>Portfolio</Link>
-              <Link href="/" className=' flex  items-center'>Contact Me</Link>
+            <Link href='#homepage' className='font-extrabold text-[2rem] ml-[6rem] '>JBOBO</Link>
+            <div className='mr-[2px] flex group gap-3'>
+ 
+                 {
+                NavLinks.map((item,index)=>(
+                   
+                    <Link key={index} className='cursor-pointer group-hover:opacity-50 flex items-center hover:opacity-100
+                    transition-opacity duration-500 ease-in-out ' href={item.link}>{item.linkDetails}</Link>
 
-
+                ))
+              }
+             
 
             </div>
         </div>
        
             )    
     } 
+
+
+
+
+
+    const NavLinks = [
+        {
+            link:"#aboutMe",
+            linkDetails:"About Me",
+        },
+         {
+            link:"#skills",
+            linkDetails:"Skills",
+        }, {
+            link:"#portfolio",
+            linkDetails:"Portfolio",
+        }, {
+            link:"#contact",
+            linkDetails:"Contact Me",
+        }, 
+    ]

@@ -28,13 +28,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
 a {
- @apply font-semibold mr-10 ;
+ @apply font-semibold  ;
  
 
 }
 /* img {
   @apply mr-[1.5rem] ;
 } */
+ @media(min-width: 1024px){
 .two-color-split{
   background: linear-gradient(-78deg, black 50%, var(--primary) 50%)
+}}
+
+@media(min-width:320px) and ( max-width:426px){
+.two-color-split-vertical{
+  background: linear-gradient(170deg, black 67%,var(--primary)  33%)
+}
+}
+html{
+  scroll-behavior: smooth;
 }

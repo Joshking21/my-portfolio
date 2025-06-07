@@ -30,7 +30,7 @@ export const ProjectDetails = [
 
 export const WorkExperienceDetails = [
     {
-        ExperienceName: "Bachelor od Technology, Computer Science- Federal University of Technology Owerri",
+        ExperienceName: "Bachelor of Technology, Computer Science- Federal University of Technology Owerri",
         ExperienceTime: "January 2022 - December 2026",
         ExperiencePlace: "Owerri, Nigeria",
         ExperienceDetails:" Pursuing a comprehensive curriculum that combines theorethical foundations and practical applications of computer science, preparing for a career in software development ",
