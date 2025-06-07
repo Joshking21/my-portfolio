@@ -10,11 +10,11 @@ export const AboutMeSection =
       
         {
           title:"DEVELOPMENT",
-          desc :"saint Lorem",
+          desc :"As a frontend developer, I specialize in building clean, responsive, and accessible user interfaces. I bring designs to life with modern frameworks and technologies, ensuring every project is intuitive and engaging.",
         },
         {
           title: "MAINTENANCE",
-          desc : " saint Lorem"
+          desc : "Beyond just building, I focus on maintaining and improving frontend systems. I troubleshoot issues, implement updates, and refine performance to keep interfaces polished and user-friendly over time." 
         },]
 
         export const AboutMeDetails = [

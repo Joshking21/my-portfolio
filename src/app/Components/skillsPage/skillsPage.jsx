@@ -16,7 +16,7 @@ export default function Skills() {
         </div>
 
         <div className="lg:w-[40%] font-semibold">
-          <div>LEARNING</div>
+          <div>LEARNING:</div>
           <div className=" flex mt-[3rem] flex-wrap justify-center items-center pl-[1rem]">
             <SkillLiist Skills={LearningDetails} />
           </div>

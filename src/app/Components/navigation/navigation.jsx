@@ -29,13 +29,13 @@ export default function Navigation(){
 
     return(
      
-        <div  className={`fixed top-0 w-full transition-transform duration-300 ease-in-out bg-white/80  h-[3rem]  z-50 ${
+        <div  className={`fixed top-0 w-full transition-transform duration-300 ease-in-out bg-white/80 lg:h-fit  h-[3rem]  z-50 ${
     ShowNav ? 'translate-y-0' : '-translate-y-full'
   } flex  lg:flex-row flex-col ` } >
 
-           <div className='justify-between flex px-[1rem] lg:px-[orem]' >
+           <div className='justify-between lg:w-full  flex px-[1rem] lg:px-[orem]' >
             <Link href='#homepage' className='font-extrabold text-[2rem] lg:ml-[6rem] '>JBOBO</Link>
-            <div className='mr-[2px] lg:flex group hidden gap-3'>
+            <div className='mr-[2px] lg:mr-[2rem] lg:flex group hidden gap-4'>
  
                  {
                 NavLinks.map((item,index)=>(
@@ -51,7 +51,7 @@ export default function Navigation(){
 
 {/* ${isOpen ? 'translate-y-[0%]':'-translate-y-[125%] '}  */}
 
-<div>
+<div className='lg:hidden' >
 <XButton  isOpen={isOpen} setIsOpen={setIsOpen}/>
 </div>
 </div>
@@ -61,7 +61,7 @@ export default function Navigation(){
 },[ShowNav])}
       <div className={`-translate-y-[125%]  ${
     isOpen ? 'translate-y-0' : '-translate-y-[125%]'
-  }  transition-transform duration-500 ease-in-out `}>
+  }  transition-transform duration-500 ease-in-out lg:hidden `}>
     {console.log(isOpen)}
 
             <Navslide/>

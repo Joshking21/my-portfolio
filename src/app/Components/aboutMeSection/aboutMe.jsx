@@ -14,13 +14,13 @@ export default function AboutMe() {
         </div>
         <AboutMeDetailsSection />
 
-        <div className=" border-l-solid border-l-[2px] border-r-solid border-r-[2px] pl-[1rem] pr-[1rem] mt-[4rem] font-extrabold  ">
+        <div className=" border-l-solid border-l-[2px] border-r-solid border-r-[2px] pl-[1rem] pr-[1rem] my-[4rem]  font-extrabold  ">
           EXPLORE
         </div>
-        <div></div>
-        <div className="flex mt-[3rem] lg:flex-row flex-col  pt-[6rem] mb-[6rem] border-t-solid border-t-[1px] border-b-solid border-b-[1px] ">
+        
+        <div className="flex my-[2rem] lg:flex-row flex-col  px-[6rem] pb-[6rem]  border-b-solid border-b-[1px]  lg:items-center lg:justify-center lg:gap-10 ">
           {ExploreItems.map((el, i) => (
-            <div key={el + i} className=" lg:mr-[3rem] pb-[4rem] mb-[3rem] ">
+            <div key={el + i} className=" lg:mr-[0rem] lg:w-[30%] pb-[4rem] lg:pb-[0rem] lg:h-fit mb-[3rem] ">
               <h1 className="font-bold">{el.title}</h1>
               <p>{el.desc}</p>
             </div>
