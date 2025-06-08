@@ -36,6 +36,14 @@ export const SkillDetails = [
      {
         PhotoSource:"/java.png",
         PhotoText: "JAVA"
+    },
+     {
+        PhotoSource:"/js.png",
+        PhotoText: "JAVASCRIPT"
+    },
+     {
+        PhotoSource:"/php.png",
+        PhotoText: "PHP"
     }
 ]
 

@@ -1,13 +1,56 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import { SocialLink } from "@/app/lib/userSkillsData";
 import { ExploreItems } from "@/app/lib/userData";
 import { MotionFadeLeftSection,MotionFadeRightSection, } from "@/app/framerMotion/motion";
 import MotionFadeInSection from "@/app/framerMotion/motion";
+import{useState, useEffect} from 'react';
+
+
+
+
+ function Typewriter() {
+  const text = 'Front-end Developer';
+  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const typingDelay = 150; // milliseconds between each letter
+    const pauseDelay = 2000; // pause before restarting
+
+    let timer;
+
+    if (index < text.length) {
+      // Add next character
+      timer = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex((prev) => prev + 1);
+      }, typingDelay);
+    } else {
+      // Pause, then reset
+      timer = setTimeout(() => {
+        setDisplayedText('');
+        setIndex(0);
+      }, pauseDelay);
+    }
+
+    return () => clearTimeout(timer);
+  }, [index, text]);
+
+  return(
+    <div>
+    {displayedText}
+    </div>
+  )
+ }
+
+
 
 export default function HomePersonalDetails() {
   return (
     <div className="flex h-full lg:flex-row flex-col-reverse lg:pt-[4rem] ">
+      
       <div className="lg:w-1/2 h-[30%] p-[1.5rem] flex lg:flex-col items-center text-left justify-between lg:pt-[2rem] text-[2rem] lg:mt-[2rem] ">
         <div className="lg:mb-[6rem] ">
           <MotionFadeLeftSection>
@@ -17,9 +60,10 @@ export default function HomePersonalDetails() {
           <div className="font-bold lg:text-[3rem]"> Joshua Oduoma</div>
           </MotionFadeRightSection>
           <MotionFadeLeftSection>
-            <div className="lg:font-semibold  font-sans  text-[1rem]">
-              Front-end Developer
+            <div className="lg:font-semibold h-[1.5rem] font-sans  text-[1rem]">
+              <Typewriter/>
             </div>
+          
           </MotionFadeLeftSection>
         </div>
         <MotionFadeInSection>
