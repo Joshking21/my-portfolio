@@ -13,9 +13,9 @@ export default function AboutMe() {
           {AboutMeSection.AboutTitle}
         </div>
         <div className=" text-left   w-[80%] ">
-            I’ve been a Front-end Developer for over <span className="font-bold">2 years</span>, honing my skills in crafting seamless and engaging web experiences. At <span className="font-bold">20 years old</span>, I’m currently a 400-level Computer Science student at the Federal University of Texhnology Owerri, FUTO, where I deepen my understanding of computing fundamentals and software development.
+            I've been a Front-end Developer for over <span className="font-bold">2 years</span>, honing my skills in crafting seamless and engaging web experiences. At <span className="font-bold">20 years old</span>, I’m currently a 400-level Computer Science student at the Federal University of Texhnology Owerri, FUTO, where I deepen my understanding of computing fundamentals and software development.
 
-My expertise spans core frontend technologies such as:
+My expertise spans core Frontend Technologies such as:
 <br></br>
 <br></br>
 <span className="text-left">
