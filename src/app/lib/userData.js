@@ -15,7 +15,11 @@ export const AboutMeSection =
         {
           title: "MAINTENANCE",
           desc : "Beyond just building, I focus on maintaining and improving frontend systems. I troubleshoot issues, implement updates, and refine performance to keep interfaces polished and user-friendly over time." 
-        },]
+        },
+      {
+        title: "Collaboration",
+        desc:"I thrive in collaborative environments where ideas flow and teamwork drives progress. Whether working with designers, backend developers, or fellow frontend engineers, I communicate clearly, listen actively, and contribute meaningfully to shared goals. I'm always open to feedback and enjoy learning from others as much as I enjoy sharing what I know."
+      }]
 
         export const AboutMeDetails = [
           {
@@ -24,7 +28,7 @@ export const AboutMeSection =
         },
           {
           title: "Nationality",
-          desc : "Nigeria"
+          desc : "Nigerian"
         },
         {
           title: "Gender",

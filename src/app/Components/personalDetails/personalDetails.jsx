@@ -74,7 +74,7 @@ export default function HomePersonalDetails() {
       </div>
 
       <div className="h-[70%] ">
-        {/* <Image src="/" alt="alt" width={20} height={20} /> */}
+        <Image src="/" alt="alt" width={400} height={400} />
       </div>
     </div>
   );

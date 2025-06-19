@@ -7,6 +7,7 @@ import Portfolio from "./Components/portfolioFolder/portfolio";
 import Contacts from "./contacts/contacts";
 import Footer from "./footer/footer";
 
+
 export default function Home() {
   return (
      <div className="bg-[var(--primary)]">

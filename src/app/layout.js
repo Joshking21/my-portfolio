@@ -1,3 +1,8 @@
+// 'use client'
+
+// import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import { useEffect } from 'react';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "./Components/navigation/navigation";
@@ -18,6 +23,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+// useEffect(() => {
+//     AOS.init({
+//       duration: 1000, // animation duration in ms
+//       once: true,     // whether animation should happen only once
+//     });
+//   }, []);}
+
+
   return (
     <html lang="en">
       <body
