@@ -1,63 +1,62 @@
-import { AboutMeSection } from "@/app/lib/userData";
-import { ExploreItems } from "@/app/lib/userData";
+"use client";
+import { AboutMeSection, ExploreItems } from "@/app/lib/userData";
 import AboutMeDetailsSection from "./aboutMeDetails";
 import MotionFadeInSection from "@/app/framerMotion/motion";
-import { Code, Wrench, Users } from 'lucide-react';
+
 export default function AboutMe() {
   return (
     <MotionFadeInSection>
-      <div id="aboutMe" className="flex   flex-col bg-[var(--primary)] items-center text-center ">
-      
-       <div className="flex flex-col items-center text-center ">
-        <div className=" p-[0.3rem] pl-[1.5rem] pr-[1.5rem] border-solid border-[3px] mt-[2rem] mb-[3rem]">
-          {AboutMeSection.AboutTitle}
-        </div>
-        <div className=" text-left   w-[80%] ">
-            I've been a Front-end Developer for over <span className="font-bold">2 years</span>, honing my skills in crafting seamless and engaging web experiences. At <span className="font-bold">20 years old</span>, I’m currently a 400-level Computer Science student at the Federal University of Texhnology Owerri, FUTO, where I deepen my understanding of computing fundamentals and software development.
-
-My expertise spans core Frontend Technologies such as:
-<br></br>
-<br></br>
-<span className="text-left">
-          -HTML5, CSS3, and JavaScript (ES6+) for building solid, accessible foundations.
-<br></br>
-
--Modern libraries and frameworks including React, Next.js, and Tailwind CSS to develop scalable and performant user interfaces.
-<br></br>
--Animation libraries like Framer Motion and AOS to add fluid, interactive elements that bring sites to life.
-</span>
-<br></br>
-<br></br>
-I’m passionate about writing clean, maintainable code and always stay updated with the latest industry trends to deliver modern, responsive websites. Some of my favorite projects include dynamic portfolios, interactive dashboards, and mobile-friendly apps that blend design and functionality.
-        </div>
-        </div>
+      <div id="aboutMe" className="flex flex-col bg-[var(--primary)] items-center py-10 md:py-16 px-4 sm:px-6 lg:px-8">
         
+        {/* Header & Bio */}
+        <div className="flex flex-col items-center gap-6 md:gap-8 max-w-4xl w-full text-center">
+          <h2 className="font-bold px-4 md:px-6 border-x-[3px] border-black uppercase tracking-widest text-lg md:text-xl">
+            {AboutMeSection.AboutTitle}
+          </h2>
 
-       
-        
+          <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
+            <p className="px-2">
+              I&apos;ve been a Front-end Developer for over{" "}
+              <span className="font-bold text-black underline decoration-2 underline-offset-4 text-xl md:text-2xl">2 years</span>, 
+              honing my skills in crafting seamless web experiences. At{" "}
+              <span className="font-bold text-black text-xl md:text-2xl">21 years old</span>, 
+              I’m currently a final-year Computer Science student at FUTO.
+            </p>
+
+            <div className="bg-black/5 p-4 md:p-6 rounded-lg text-left w-full overflow-hidden">
+              <p className="font-bold mb-3 text-sm md:text-base">My expertise includes:</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
+                <li className="flex gap-2"><span>•</span> HTML5, CSS3, & JS (ES6+)</li>
+                <li className="flex gap-2"><span>•</span> React, Next.js, & React Native</li>
+                <li className="flex gap-2"><span>•</span> Tailwind CSS & ShadCn UI</li>
+                <li className="flex gap-2"><span>•</span> Framer Motion & AOS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <AboutMeDetailsSection />
 
-        <div className=" border-l-solid border-l-[2px] border-r-solid border-r-[2px] px-[1rem]  my-[4rem]  font-extrabold  ">
+        {/* Explore Section */}
+        <div className="border-x-[3px] border-black px-4 my-10 md:my-16 font-extrabold tracking-widest text-sm md:text-base">
           EXPLORE
         </div>
-        
-        <div className="flex my-[2rem] lg:flex-row flex-col  px-[4rem] pb-[6rem]  border-b-solid border-b-[1px]  lg:items-center lg:justify-center lg:gap-10  ">
-          {ExploreItems.map((el, i) => (
-           <div className="flex flex-col lg:mr-[0rem] lg:w-[30%] pb-[4rem] lg:pb-[1rem] mb-[3rem] lg:h-[70%] ">
-            <div className=" flex items-center justify-center">
-            {
-              i===0? <Code className="text-[var(--primary)] bg-black w-15  rounded-[50%] h-15 p-2" />:
-               i===1? <Wrench className="text-[var(--primary)] bg-black w-15  rounded-[50%] h-15 p-2" />:
-                i===2? <Users className="text-[var(--primary)] bg-black w-15  rounded-[50%] h-15 p-2" />:""
 
-            }
-            </div>
-            <div key={el + i} className=" ">
-              <h1 className="font-bold">{el.title}</h1>
-              <p>{el.desc}</p>
-            </div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-6xl w-full px-4 border-b border-black/10 pb-10">
+          {ExploreItems.map((el, i) => {
+            const Icon = el.icon;
+            return (
+              <div key={i} className="flex flex-col items-center lg:items-start group">
+                <div className="mb-4 md:mb-6 relative">
+                  <Icon className="relative z-10 text-[var(--primary)] bg-black w-12 h-12 md:w-14 md:h-14 rounded-full p-3 transition-all duration-500 group-hover:scale-110" />
+                </div>
+                <div className="flex flex-col gap-2 md:gap-3 text-center lg:text-left">
+                  <h3 className="font-bold text-lg md:text-xl tracking-tight uppercase">{el.title}</h3>
+                  <p className="text-xs md:text-sm opacity-80 leading-relaxed">{el.desc}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </MotionFadeInSection>

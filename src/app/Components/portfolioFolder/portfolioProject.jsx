@@ -1,64 +1,48 @@
-import { ProjectDetails } from "../../lib/userProject";
 import Image from "next/image";
 import Link from "next/link";
-import { MotionFadeRightSection } from "@/app/framerMotion/motion";
 
-export default function Port({isActive}) {
+export default function Port({ item }) {
   return (
-    <MotionFadeRightSection>
-      <div  className={` w-full lg:flex-row flex-col text-black flex  justify-center ${isActive? "-translate-x-[100%]": "translate-x-[0%]" } transition-transform duration-2000 ease-in-out  `}>
-        {ProjectDetails.map((item, index) => (
-          <div
-            key={index}
-            className="mb-[3rem] relative group lg:w-[30%] lg:h-[400px] h-fit lg:bg-[var(--primary)] lg:border-none border-t-[var(--primary)] border-t-[1px] flex flex-row hover:bg-black/50 mr-[3px] "
-          >
-            <div
-              className="lg:inline hidden absolute inset-0 bg-cover w-full bg-center bg-no-repeat "
-              style={{ backgroundImage: `url(${item.ProjectImage})` }} 
-            ></div>
-              <div className=" lg:absolute inset-0 bg-black lg:opacity-0 lg:group-hover:opacity-95 lg:transition-opacity lg:duration-1000 z-3 "></div>
-                <div className="w-full  relative z-10 text-[var(--primary)] text-left p-[1rem] lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-1000 lg:ease-in-out ">
-                  <div className=" font-extrabold text-[2rem] text-[var(--primary)]  "
-                  style={{
-                    // textShadow:"0 0 6px #ffffff"
-                  }}>
-                    {item.ProjectName}
-                  </div>
-                  <div className=" " >
+    <div className="min-w-full md:min-w-[50%] lg:min-w-[33.33%] px-2 transition-all duration-500">
+      <div className="relative group h-[400px] w-full bg-[var(--primary)] overflow-hidden border border-white/10 rounded-xl">
+        
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+          style={{ backgroundImage: `url(${item.projectImage})` }}
+        ></div>
+        
+        {/* Overlay: 
+            Mobile: Always shows a slight gradient at the bottom so text is readable
+            Desktop: Fully transparent until hover 
+        */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent lg:bg-black lg:from-transparent lg:opacity-0 lg:group-hover:opacity-90 transition-opacity duration-500 z-10"></div>
 
-                  <div className="border-solid border-[2px] w-fit rounded-[10px] p-[0.5rem] border-[var(--primary)] mt-[1rem] font-semibold mb-[1rem] ">
-                    {item.ProjectContribution}
-                  </div>
-                  <div className="mb-[1rem]">{item.ProjectDetails}</div>
-                  <div className="flex mb-[3rem] ">
-                    {item.ProjectLanguagesSource.map((icon, index) => (
-                      <div key={index} className="w-[20%]">
-                        <Image src={icon} alt="alt" width={30} height={30} />
-                      </div>
-                    ))}
-                  </div>
-                  <div className=" flex  justify-center   ">
-                    <Link href={item.ProjectGitHubLink} className="hover:opacity-70  w-[30%] flex items-center justify-center">
-                      {" "}
-                      <Image
-                        src="/gitHubWhite.png"
-                        alt="gitHubWhite Logo"
-                        width={30}
-                        height={30}
-                      />
-                    </Link>
-
-                    <div className="w-[50%]  border-solid border-l-[4px] border-r-[4px] border-[var(--primary)] flex justify-center items center hover:opacity-70">
-                      <Link href={item.ProjectLink} className="" >PREVIEW</Link>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-           
+        {/* Content:
+            Mobile: Visible by default but positioned at the bottom
+            Desktop: Hidden until hover
+        */}
+        <div className="relative z-20 h-full flex flex-col justify-end p-6 text-[var(--primary)] 
+                        lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 
+                        translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">
           
-        ))}
+          <h3 className="font-extrabold text-2xl mb-2">{item.projectName}</h3>
+          
+          {/* Hide details on very small mobile to save space, show on hover or larger screens */}
+          <p className="text-xs md:text-sm mb-4 line-clamp-2 lg:line-clamp-3 opacity-90">
+            {item.projectDetails}
+          </p>
+          
+          <div className="flex gap-4 items-center">
+            <Link href={item.projectGitHubLink} className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+              <Image src="/gitHubWhite.png" alt="GitHub" width={20} height={20} />
+            </Link>
+            <Link href={item.projectLink} className="text-xs font-bold border-l-2 border-r-2 px-4 hover:bg-white hover:text-black transition-all">
+              PREVIEW
+            </Link>
+          </div>
+        </div>
       </div>
-    </MotionFadeRightSection>
+    </div>
   );
 }
