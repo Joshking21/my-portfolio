@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"; // Added motion
 import MotionFadeInSection from "../../framerMotion/motion";
 import WorkExp from "./portfolioWorkExperience";
 import Port from "./portfolioProject";
@@ -10,14 +11,19 @@ export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const data = isActive ? WorkExperienceDetails : ProjectDetails;
-  
-  // Responsive logic for translation
-  // Mobile: translateX(index * 100%)
-  // Tablet: translateX(index * 50%)
-  // Laptop: translateX(index * 33.33%)
-  
+
   const handleNext = () => setCurrentIndex((prev) => (prev < data.length - 1 ? prev + 1 : 0));
   const handlePrev = () => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : data.length - 1));
+
+  // Handle the swipe/drag logic
+  const handleDragEnd = (event, info) => {
+    const swipeThreshold = 50; // Pixels needed to trigger a swipe
+    if (info.offset.x < -swipeThreshold) {
+      handleNext();
+    } else if (info.offset.x > swipeThreshold) {
+      handlePrev();
+    }
+  };
 
   return (
     <MotionFadeInSection>
@@ -34,37 +40,50 @@ export default function Portfolio() {
           </div>
 
           <div className="relative w-full px-4 overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(calc(-${currentIndex} * var(--slide-width)))` }}
-              data-index={currentIndex}
+            {/* The draggable container */}
+            <motion.div 
+              drag="x" // Enable horizontal dragging
+              dragConstraints={{ left: 0, right: 0 }} // Snap back to 0 after drag
+              onDragEnd={handleDragEnd}
+              animate={{ x: `calc(-${currentIndex} * var(--slide-width))` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="flex cursor-grab active:cursor-grabbing"
+              style={{
+                "--slide-width": "100%",
+              }}
             >
-              {/* Note: We use CSS variables in the parent div or standard Tailwind responsive logic below */}
               {data.map((item, index) => (
-                <div key={index} className="min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-2">
+                <div 
+                  key={index} 
+                  className="min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-2 select-none"
+                >
                    {isActive ? <WorkExp item={item} /> : <Port item={item} />}
                 </div>
               ))}
-            </div>
+            </motion.div>
             
-            {/* Nav Arrows - Hidden on small touch screens for better UX, shown on md+ */}
-            <button onClick={handlePrev} className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-3 rounded-full z-30 opacity-0 group-hover:opacity-100 transition">◀</button>
-            <button onClick={handleNext} className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-3 rounded-full z-30 opacity-0 group-hover:opacity-100 transition">▶</button>
+            {/* Nav Arrows - Hidden on mobile, shown on desktop hover */}
+            <button onClick={handlePrev} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-3 rounded-full z-30 opacity-0 group-hover:opacity-100 transition">◀</button>
+            <button onClick={handleNext} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-3 rounded-full z-30 opacity-0 group-hover:opacity-100 transition">▶</button>
           </div>
 
           {/* Dots Indicator */}
           <div className="flex gap-2 mt-8">
             {data.map((_, idx) => (
-              <div key={idx} onClick={() => setCurrentIndex(idx)} className={`w-2 h-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? "bg-white w-6" : "bg-white/30"}`} />
+              <div 
+                key={idx} 
+                onClick={() => setCurrentIndex(idx)} 
+                className={`h-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? "bg-white w-6" : "bg-white/30 w-2"}`} 
+              />
             ))}
           </div>
         </div>
-        
-        {/* Helper style for the dynamic transform on mobile vs desktop */}
+
+        {/* Global CSS for the variable Slide Width */}
         <style jsx>{`
-            div { --slide-width: 100%; }
-            @media (min-width: 768px) { div { --slide-width: 50%; } }
-            @media (min-width: 1024px) { div { --slide-width: 33.333%; } }
+            motion.div { --slide-width: 100%; }
+            @media (min-width: 768px) { motion.div { --slide-width: 50%; } }
+            @media (min-width: 1024px) { motion.div { --slide-width: 33.333%; } }
         `}</style>
       </div>
     </MotionFadeInSection>
