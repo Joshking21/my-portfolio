@@ -2,11 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SocialLink } from "@/app/lib/userSkillsData";
-import { MotionFadeLeftSection, MotionFadeRightSection } from "@/app/framerMotion/motion";
+import { MotionFadeLeftSection, MotionFadeRightSection, MotionFadeDownSection } from "@/app/framerMotion/motion";
 import MotionFadeInSection from "@/app/framerMotion/motion";
 import { useState, useEffect } from "react";
 import { Itim } from "next/font/google";
 import { FileUser, MessageSquare } from "lucide-react";
+import Magnetic from "../ui/Magnetic";
+import TiltCard from "../ui/TiltCard";
 
 const itim = Itim({ weight: "400", subsets: ["latin"] });
 
@@ -37,40 +39,56 @@ export default function HomePersonalDetails() {
           </MotionFadeLeftSection>
         </div>
 
-        {/* Action Buttons */}
-        <MotionFadeInSection>
-          <div className="flex flex-col xs:flex-row gap-4 md:gap-8 mt-6 mb-10 w-full sm:w-auto">
-            <Link
-              href="/my-cv.pdf"
-              target="_blank"
-              className="border-x-[3px] border-black px-6 py-2 font-bold text-xs md:text-sm tracking-widest hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2 uppercase"
-            >
-              <FileUser size={18} /> View CV
-            </Link>
+        {/* Value Proposition Statement */}
+        <MotionFadeLeftSection>
+          <p className="max-w-md lg:max-w-lg text-sm sm:text-base text-black/75 font-medium leading-relaxed mb-8">
+            Helping businesses, founders, and professionals bring their work online with modern, scalable, and high-performance web &amp; mobile solutions.
+          </p>
+        </MotionFadeLeftSection>
 
-            <Link
-              href="https://wa.me/234913117107"
-              className="border-x-[3px] border-black px-6 py-2 font-bold text-xs md:text-sm tracking-widest hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2 uppercase"
-            >
-              <MessageSquare size={18} /> Contact Me
-            </Link>
+        {/* Action Buttons with Magnetic Pull */}
+        <MotionFadeInSection>
+          <div className="flex flex-col xs:flex-row gap-4 md:gap-8 mb-10 w-full sm:w-auto">
+            <Magnetic strength={0.3}>
+              <Link
+                href="/my-cv.pdf"
+                target="_blank"
+                className="border-x-[3px] border-black px-6 py-2 font-bold text-xs md:text-sm tracking-widest hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2 uppercase"
+              >
+                <FileUser size={18} /> View CV
+              </Link>
+            </Magnetic>
+
+            <Magnetic strength={0.3}>
+              <Link
+                href="https://wa.me/234913117107"
+                className="border-x-[3px] border-black px-6 py-2 font-bold text-xs md:text-sm tracking-widest hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2 uppercase"
+              >
+                <MessageSquare size={18} /> Contact Me
+              </Link>
+            </Magnetic>
           </div>
         </MotionFadeInSection>
 
-        <SocialImage SocialPhotos={SocialLink} />
+        <MotionFadeDownSection>
+          <SocialImage SocialPhotos={SocialLink} />
+        </MotionFadeDownSection>
       </div>
 
-      {/* Hero Image Section */}
+      {/* Hero Image Section with 3D Parallax Tilt */}
       <MotionFadeRightSection>
-        <div className="relative w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]">
-          <Image
-            src="/mine.PNG" 
-            alt="JayBobo Hero"
-            fill
-            className="object-cover object-top rounded-3xl md:grayscale md:hover:grayscale-0 transition-all duration-700 shadow-2xl"
-            priority 
-          />
-        </div>
+        <TiltCard maxTilt={8} scaleOnHover={1.03} className="rounded-3xl">
+          <div className="relative w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]">
+            <Image
+              src="/mine.PNG" 
+              alt="JayBobo Hero"
+              fill
+              sizes="(max-width: 640px) 260px, (max-width: 1024px) 350px, 450px"
+              className="object-cover object-top rounded-3xl md:grayscale md:hover:grayscale-0 transition-all duration-700 shadow-2xl"
+              priority 
+            />
+          </div>
+        </TiltCard>
       </MotionFadeRightSection>
     </div>
   );
@@ -80,9 +98,11 @@ export function SocialImage({ SocialPhotos = [] }) {
   return (
     <div className="flex items-center gap-6">
       {SocialPhotos.map((item, index) => (
-        <Link key={index} href={item.link} target="_blank" className="hover:-translate-y-1 transition-transform">
-          <Image src={item.photosource} alt="social" width={24} height={24} className="opacity-70 hover:opacity-100 transition-opacity" />
-        </Link>
+        <Magnetic key={index} strength={0.4}>
+          <Link href={item.link} target="_blank" className="hover:-translate-y-1 transition-transform inline-block p-1">
+            <Image src={item.photosource} alt="social" width={24} height={24} className="opacity-70 hover:opacity-100 transition-opacity" />
+          </Link>
+        </Magnetic>
       ))}
     </div>
   );
@@ -90,7 +110,7 @@ export function SocialImage({ SocialPhotos = [] }) {
 
 // ... Typewriter Logic stays exactly as you had it ...
 function Typewriter() {
-  const roles = ["Front-end Developer", "Mobile Developer", "Web Developer"];
+  const roles = ["Full-stack Developer", "Front-end Developer", "Mobile Developer", "Web Developer"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0); // Which word
   const [displayedText, setDisplayedText] = useState(""); // The typed letters
   const [isDeleting, setIsDeleting] = useState(false); // Is it currently clearing?

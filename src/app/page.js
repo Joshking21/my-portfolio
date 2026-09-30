@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HomePageDetails from "./Components/homePage/homePage";
+import TechTicker from "./Components/ui/TechTicker";
 import "./globals.css";
 import 'aos/dist/aos.css';
 import AboutMe from "./Components/aboutMeSection/aboutMe";
@@ -17,8 +18,9 @@ const syne = Syne({
 
 export default function Home() {
   return (
-    <div className={` ${syne.className} bg-[var(--primary)]`}>
+    <div className={`${syne.className} bg-[var(--primary)] overflow-x-hidden`}>
       <HomePageDetails />
+      <TechTicker />
       <Portfolio />
       <Skills />
       <AboutMe />

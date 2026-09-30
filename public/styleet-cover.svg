@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141212" />
+      <stop offset="50%" stop-color="#1c1919" />
+      <stop offset="100%" stop-color="#0d0c0c" />
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2b978" />
+      <stop offset="100%" stop-color="#f5deb3" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2626" />
+      <stop offset="100%" stop-color="#1e1b1b" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="800" fill="url(#bg)" />
+
+  <!-- Subtle Ambient Glow -->
+  <circle cx="950" cy="200" r="320" fill="#e2b978" opacity="0.08" filter="blur(60px)" />
+  <circle cx="200" cy="650" r="280" fill="#ffffff" opacity="0.04" filter="blur(50px)" />
+
+  <!-- Top Navigation Mockup -->
+  <g transform="translate(100, 50)">
+    <rect width="1000" height="70" rx="18" fill="#221e1e" stroke="#ffffff" stroke-opacity="0.1" />
+    <text x="35" y="44" font-family="system-ui, sans-serif" font-size="24" font-weight="900" fill="#ffffff" letter-spacing="3">STYLEET</text>
+    <circle cx="165" cy="38" r="4" fill="#e2b978" />
+    
+    <text x="420" y="42" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff" opacity="0.75" letter-spacing="1">HAIR SERVICES</text>
+    <text x="560" y="42" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff" opacity="0.75" letter-spacing="1">ACCESSORIES</text>
+    <text x="690" y="42" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff" opacity="0.75" letter-spacing="1">MY BOOKINGS</text>
+
+    <!-- Book Now CTA Button -->
+    <rect x="850" y="16" width="120" height="38" rx="10" fill="url(#goldAccent)" />
+    <text x="878" y="40" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#141212" letter-spacing="1">BOOK NOW</text>
+  </g>
+
+  <!-- Main Hero Card Window -->
+  <g transform="translate(100, 150)" filter="url(#shadow)">
+    <!-- Browser/App Container -->
+    <rect width="1000" height="580" rx="24" fill="#181515" stroke="#ffffff" stroke-opacity="0.12" />
+
+    <!-- Left Hero Column: Booking Engine & Brand -->
+    <g transform="translate(60, 60)">
+      <rect width="165" height="28" rx="8" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.1" />
+      <text x="14" y="19" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#e2b978" letter-spacing="2">SALON &amp; ACCESSORIES</text>
+
+      <text x="0" y="85" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-1">Redefining Your</text>
+      <text x="0" y="135" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="url(#goldAccent)" letter-spacing="-1">Hair Experience.</text>
+
+      <text x="0" y="178" font-family="system-ui, sans-serif" font-size="14" fill="#d0c7c7" opacity="0.8" width="400">
+        Book professional stylists, reserve salon chairs in real-time,
+      </text>
+      <text x="0" y="200" font-family="system-ui, sans-serif" font-size="14" fill="#d0c7c7" opacity="0.8">
+        and purchase premium hair extensions and beauty accessories.
+      </text>
+
+      <!-- Booking Interactive Widget -->
+      <g transform="translate(0, 240)">
+        <rect width="420" height="190" rx="16" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.1" />
+        
+        <text x="24" y="32" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="1">RESERVE APPOINTMENT</text>
+        <rect x="330" y="18" width="65" height="22" rx="6" fill="#e2b978" fill-opacity="0.2" />
+        <text x="340" y="33" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#e2b978">LIVE SLOTS</text>
+
+        <!-- Form fields inside widget -->
+        <rect x="24" y="52" width="175" height="42" rx="10" fill="#151313" stroke="#ffffff" stroke-opacity="0.1" />
+        <text x="36" y="78" font-family="system-ui, sans-serif" font-size="11" fill="#ffffff" opacity="0.7">✂ Braids &amp; Styling</text>
+
+        <rect x="215" y="52" width="180" height="42" rx="10" fill="#151313" stroke="#ffffff" stroke-opacity="0.1" />
+        <text x="227" y="78" font-family="system-ui, sans-serif" font-size="11" fill="#ffffff" opacity="0.7">📅 Select Date &amp; Time</text>
+
+        <rect x="24" y="108" width="371" height="48" rx="12" fill="url(#goldAccent)" />
+        <text x="135" y="138" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#141212" letter-spacing="1">CONFIRM BOOKING</text>
+      </g>
+    </g>
+
+    <!-- Right Column: Dual Showcases (Accessories Boutique & Admin Hub) -->
+    <g transform="translate(560, 60)">
+      <!-- Accessory Boutique Card -->
+      <g transform="translate(0, 0)">
+        <rect width="380" height="220" rx="18" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.1" />
+        <text x="24" y="34" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">HAIR ACCESSORIES BOUTIQUE</text>
+        <text x="24" y="54" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#e2b978">E-Commerce &amp; Product Cart</text>
+
+        <!-- Mini Product 1 -->
+        <g transform="translate(24, 75)">
+          <rect width="155" height="120" rx="12" fill="#141212" stroke="#ffffff" stroke-opacity="0.08" />
+          <rect x="14" y="14" width="40" height="40" rx="8" fill="#e2b978" fill-opacity="0.2" />
+          <text x="27" y="38" font-family="system-ui, sans-serif" font-size="16">✨</text>
+          <text x="14" y="74" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Silk Hair Bonnet</text>
+          <text x="14" y="92" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#e2b978">₦8,500</text>
+          <rect x="100" y="78" width="42" height="24" rx="6" fill="#ffffff" fill-opacity="0.1" />
+          <text x="110" y="94" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#ffffff">+Add</text>
+        </g>
+
+        <!-- Mini Product 2 -->
+        <g transform="translate(195, 75)">
+          <rect width="160" height="120" rx="12" fill="#141212" stroke="#ffffff" stroke-opacity="0.08" />
+          <rect x="14" y="14" width="40" height="40" rx="8" fill="#e2b978" fill-opacity="0.2" />
+          <text x="27" y="38" font-family="system-ui, sans-serif" font-size="16">💎</text>
+          <text x="14" y="74" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Lace Melt Band</text>
+          <text x="14" y="92" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#e2b978">₦5,200</text>
+          <rect x="105" y="78" width="42" height="24" rx="6" fill="#ffffff" fill-opacity="0.1" />
+          <text x="115" y="94" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#ffffff">+Add</text>
+        </g>
+      </g>
+
+      <!-- Admin Control Suite Card -->
+      <g transform="translate(0, 245)">
+        <rect width="380" height="195" rx="18" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.1" />
+        <text x="24" y="34" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">ADMIN MANAGEMENT SUITE</text>
+        <text x="24" y="52" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#e2b978">Appointments, Staff &amp; Revenue Portal</text>
+
+        <!-- Stat Pills -->
+        <g transform="translate(24, 72)">
+          <rect width="102" height="50" rx="10" fill="#141212" stroke="#ffffff" stroke-opacity="0.08" />
+          <text x="12" y="24" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" opacity="0.6">TODAY BOOKINGS</text>
+          <text x="12" y="42" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff">18 Jobs</text>
+
+          <rect x="114" y="0" width="105" height="50" rx="10" fill="#141212" stroke="#ffffff" stroke-opacity="0.08" />
+          <text x="126" y="24" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" opacity="0.6">SALON REVENUE</text>
+          <text x="126" y="42" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#e2b978">₦340,000</text>
+
+          <rect x="228" y="0" width="104" height="50" rx="10" fill="#141212" stroke="#ffffff" stroke-opacity="0.08" />
+          <text x="240" y="24" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" opacity="0.6">STYLISTS</text>
+          <text x="240" y="42" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff">6 Active</text>
+        </g>
+
+        <!-- Recent Booking Row -->
+        <rect x="24" y="136" width="332" height="38" rx="8" fill="#141212" stroke="#ffffff" stroke-opacity="0.08" />
+        <circle cx="42" cy="155" r="5" fill="#4ade80" />
+        <text x="56" y="159" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Wig Installation • Amaka O.</text>
+        <text x="285" y="159" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#e2b978">2:30 PM</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
-'use client'
+'use client';
 import { useState } from 'react';
+import Magnetic from '../Components/ui/Magnetic';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -61,12 +62,14 @@ export default function ContactForm() {
         />
       </div>
 
-      <button 
-        type="submit"
-        className="self-center lg:self-start mt-4 px-12 py-1 border-x-2 border-black font-extrabold hover:bg-black hover:text-[var(--primary)] transition-all duration-300 active:scale-95"
-      >
-        Submit
-      </button>
+      <Magnetic strength={0.3} className="self-center lg:self-start mt-4">
+        <button 
+          type="submit"
+          className="px-12 py-1 border-x-2 border-black font-extrabold hover:bg-black hover:text-[var(--primary)] transition-all duration-300 active:scale-95 cursor-pointer"
+        >
+          Submit
+        </button>
+      </Magnetic>
     </form>
   );
 }

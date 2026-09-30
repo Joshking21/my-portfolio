@@ -1,6 +1,6 @@
 export default function WorkExp({ item }) {
   return (
-    <div className="min-w-full lg:min-w-[33.33%] px-4 text-left border-r border-white/20">
+    <div className="w-full h-full px-4 text-left border-r border-white/20">
       <div className="flex flex-col h-full">
         <span className="font-bold text-sm text-gray-400 mb-2">{item.ExperienceTime}</span>
         <div className="border-l-2 border-white pl-4">
