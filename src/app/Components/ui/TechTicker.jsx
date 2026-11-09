@@ -1,14 +1,14 @@
 "use client";
 
+// Plain words a client cares about: what I build and how I work
 const tickerItems = [
-  "FULL-STACK ARCHITECTURE",
-  "SYSTEM DESIGN",
-  "PERFORMANCE OPTIMIZATION",
-  "WEB3 & MOBILE APPS",
-  "CLEAN CODE & DESIGN PATTERNS",
-  "HIGH-THROUGHPUT BACKENDS",
-  "REACT & NEXT.JS ECOSYSTEM",
-  "INTERACTIVE CRAFT",
+  "BUSINESS WEBSITES",
+  "WEB & MOBILE APPS",
+  "DASHBOARDS & ADMIN TOOLS",
+  "ONGOING SUPPORT",
+  "WORKS REMOTELY",
+  "REPLIES WITHIN 24 HOURS",
+  "OPEN TO NEW PROJECTS",
 ];
 
 export default function TechTicker({ className = "" }) {

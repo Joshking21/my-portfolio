@@ -9,16 +9,22 @@ import { Itim } from "next/font/google";
 import { FileUser, MessageSquare } from "lucide-react";
 import Magnetic from "../ui/Magnetic";
 import TiltCard from "../ui/TiltCard";
+import InkDoodles from "../ui/InkDoodles";
+import { ContactDetails } from "@/app/lib/userData";
 
 const itim = Itim({ weight: "400", subsets: ["latin"] });
 
 export default function HomePersonalDetails() {
   return (
     <div
-      className="flex flex-col lg:flex-row min-h-screen justify-center lg:justify-between items-center px-4 sm:px-10 lg:px-24 pt-24 pb-10 gap-10"
+      className="relative overflow-hidden flex flex-col lg:flex-row min-h-screen justify-center lg:justify-between items-center px-4 sm:px-10 lg:px-14 xl:px-24 pt-24 pb-10 gap-10"
       id="homepage"
     >
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+      {/* Ink doodles drifting behind the whole header (smaller and fewer on phones). */}
+      {/* Doodles fade behind elements marked data-quiet (small text); the big name can take them */}
+      <InkDoodles />
+
+      <div className="relative flex flex-col items-center lg:items-start text-center lg:text-left z-10">
         <div className="flex flex-col mb-6">
           <MotionFadeLeftSection>
             <div className="text-xl md:text-3xl font-medium mb-2">
@@ -27,13 +33,13 @@ export default function HomePersonalDetails() {
           </MotionFadeLeftSection>
 
           <MotionFadeRightSection>
-            <div className={`font-bold text-6xl sm:text-7xl lg:text-9xl tracking-tighter leading-none ${itim.className}`}>
+            <div className={`font-bold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tighter leading-none ${itim.className}`}>
               JayBobo
             </div>
           </MotionFadeRightSection>
 
           <MotionFadeLeftSection>
-            <div className="h-12 mt-4 text-lg md:text-3xl font-mono text-gray-600">
+            <div data-quiet className="h-12 mt-4 text-lg md:text-3xl font-mono text-gray-600">
               <Typewriter />
             </div>
           </MotionFadeLeftSection>
@@ -41,14 +47,14 @@ export default function HomePersonalDetails() {
 
         {/* Value Proposition Statement */}
         <MotionFadeLeftSection>
-          <p className="max-w-md lg:max-w-lg text-sm sm:text-base text-black/75 font-medium leading-relaxed mb-8">
+          <p data-quiet className="max-w-md lg:max-w-lg text-sm sm:text-base text-black/75 font-medium leading-relaxed mb-8">
             Helping businesses, founders, and professionals bring their work online with modern, scalable, and high-performance web &amp; mobile solutions.
           </p>
         </MotionFadeLeftSection>
 
         {/* Action Buttons with Magnetic Pull */}
         <MotionFadeInSection>
-          <div className="flex flex-col xs:flex-row gap-4 md:gap-8 mb-10 w-full sm:w-auto">
+          <div data-quiet className="flex flex-col xs:flex-row gap-4 md:gap-8 mb-10 w-full sm:w-auto">
             <Magnetic strength={0.3}>
               <Link
                 href="/my-cv.pdf"
@@ -61,7 +67,9 @@ export default function HomePersonalDetails() {
 
             <Magnetic strength={0.3}>
               <Link
-                href="https://wa.me/234913117107"
+                href={ContactDetails.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border-x-[3px] border-black px-6 py-2 font-bold text-xs md:text-sm tracking-widest hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2 uppercase"
               >
                 <MessageSquare size={18} /> Contact Me
@@ -71,21 +79,23 @@ export default function HomePersonalDetails() {
         </MotionFadeInSection>
 
         <MotionFadeDownSection>
-          <SocialImage SocialPhotos={SocialLink} />
+          <div data-quiet>
+            <SocialImage SocialPhotos={SocialLink} />
+          </div>
         </MotionFadeDownSection>
       </div>
 
       {/* Hero Image Section with 3D Parallax Tilt */}
-      <MotionFadeRightSection>
+      <MotionFadeRightSection className="relative z-10">
         <TiltCard maxTilt={8} scaleOnHover={1.03} className="rounded-3xl">
-          <div className="relative w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]">
+          <div className="relative w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] lg:w-[390px] lg:h-[390px] xl:w-[450px] xl:h-[450px]">
             <Image
               src="/mine.PNG" 
               alt="JayBobo Hero"
               fill
-              sizes="(max-width: 640px) 260px, (max-width: 1024px) 350px, 450px"
-              className="object-cover object-top rounded-3xl md:grayscale md:hover:grayscale-0 transition-all duration-700 shadow-2xl"
-              priority 
+              sizes="(max-width: 640px) 260px, (max-width: 1024px) 350px, (max-width: 1280px) 390px, 450px"
+              className="z-10 object-cover object-top rounded-3xl md:grayscale md:hover:grayscale-0 transition-all duration-700 shadow-2xl"
+              priority
             />
           </div>
         </TiltCard>
@@ -110,7 +120,8 @@ export function SocialImage({ SocialPhotos = [] }) {
 
 // ... Typewriter Logic stays exactly as you had it ...
 function Typewriter() {
-  const roles = ["Full-stack Developer", "Front-end Developer", "Mobile Developer", "Web Developer"];
+  // One consistent message: full-stack, plus what that means for a client
+  const roles = ["Full-stack Developer", "Websites & web apps", "Mobile apps too", "Open to new projects"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0); // Which word
   const [displayedText, setDisplayedText] = useState(""); // The typed letters
   const [isDeleting, setIsDeleting] = useState(false); // Is it currently clearing?

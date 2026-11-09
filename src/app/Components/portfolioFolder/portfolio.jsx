@@ -1,204 +1,83 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { MotionFadeLeftSection } from "../../framerMotion/motion";
-import WorkExp from "./portfolioWorkExperience";
-import Port from "./portfolioProject";
+import { useState } from "react";
+import CaseFile from "./CaseFile";
+import EmploymentRecord from "./EmploymentRecord";
 import ProjectModal from "./projectModal";
 import { ProjectDetails, WorkExperienceDetails } from "../../lib/userProject";
+import { typewriter } from "@/app/lib/fonts";
+
+// Order: featured first, then live projects, otherwise data order (stable sort)
+const rank = (p) => (p.featured ? 2 : 0) + (p.projectLink ? 1 : 0);
+const projects = [...ProjectDetails].sort((a, b) => rank(b) - rank(a));
+
+// Phones show only the featured projects; the rest sit behind a button so
+// scrolling isn't a chore. Tablets & desktop show everything.
+const PHONE_VISIBLE = projects.filter((p) => p.featured).length || 3;
 
 export default function Portfolio() {
-  const [isActive, setIsActive] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(3);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const wheelLock = useRef(false);
+  const [selected, setSelected] = useState(null); // { item, index }
+  const [showAll, setShowAll] = useState(false);
+  const hiddenCount = projects.length - PHONE_VISIBLE;
 
-  const data = isActive ? WorkExperienceDetails : ProjectDetails;
-
-  // Track responsive visible cards count
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setVisibleCount(3);
-      } else {
-        setVisibleCount(1);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Bound maxIndex so it never over-scrolls into empty slots
-  const maxIndex = Math.max(0, data.length - visibleCount);
-
-  // Clamp index if tab or screen changes
-  useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [maxIndex, currentIndex]);
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : prev));
+  const collapse = () => {
+    setShowAll(false);
+    document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : 0));
-  };
-
-  // Handle the swipe/drag logic
-  const handleDragEnd = (event, info) => {
-    const swipeThreshold = 50;
-    if (info.offset.x < -swipeThreshold) {
-      handleNext();
-    } else if (info.offset.x > swipeThreshold) {
-      handlePrev();
-    }
-  };
-
-  // Mouse wheel scroll handler (bounded: no backwards wrap at 0, no loop at maxIndex)
-  const handleWheel = (e) => {
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
-
-    if (Math.abs(delta) > 20) {
-      if (wheelLock.current) return;
-
-      if (delta > 0 && currentIndex < maxIndex) {
-        wheelLock.current = true;
-        setTimeout(() => {
-          wheelLock.current = false;
-        }, 350);
-        handleNext();
-      } else if (delta < 0 && currentIndex > 0) {
-        wheelLock.current = true;
-        setTimeout(() => {
-          wheelLock.current = false;
-        }, 350);
-        handlePrev();
-      }
-    }
-  };
-
+  // No section-level fade wrapper here: this section is taller than several
+  // screens, so a "15% visible" trigger never fires on phones (section stays
+  // invisible). Folders and the record animate in on their own instead.
   return (
-    <MotionFadeLeftSection>
+    <>
       <div id="portfolio" className="flex flex-col bg-[var(--primary)] items-center pt-10 pb-0">
         <div className="border-x-[3px] font-bold py-1 px-6 border-black my-8 uppercase tracking-widest text-sm">
           Portfolio
         </div>
 
-        <div className="bg-black text-white w-full flex flex-col items-center relative overflow-hidden pt-4 pb-12">
-          
-          {/* Micro Edge Softener: 4px crisp seam to eliminate harsh cut without blur */}
-          <div className="pointer-events-none absolute top-0 left-0 right-0 h-1 bg-gradient-to-b from-[var(--primary)] to-transparent opacity-60 z-20" />
-
-          {/* Micro Edge Softener: 4px crisp seam to eliminate harsh cut without blur */}
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-t from-[var(--primary)] to-transparent opacity-60 z-20" />
-
-          {/* Tab Switcher */}
-          <div className="relative z-30 flex mt-8 mb-12 gap-4">
-            <button
-              onClick={() => {
-                setIsActive(false);
-                setCurrentIndex(0);
-              }}
-              className={`px-4 py-1 transition-all text-xs font-bold cursor-pointer ${
-                !isActive ? "border-b-2 border-white" : "opacity-50 hover:opacity-80"
-              }`}
-            >
-              PROJECTS
-            </button>
-            <button
-              onClick={() => {
-                setIsActive(true);
-                setCurrentIndex(0);
-              }}
-              className={`px-4 py-1 transition-all text-xs font-bold cursor-pointer ${
-                isActive ? "border-b-2 border-white" : "opacity-50 hover:opacity-80"
-              }`}
-            >
-              WORK
-            </button>
+        <div className="bg-black text-white w-full relative overflow-hidden pt-16 pb-24 px-4 sm:px-8 lg:px-16">
+          {/* Case files */}
+          <div className={`${typewriter.className} text-center text-[11px] tracking-[0.35em] text-white/50 mb-10`}>
+            SELECTED CASE FILES · {String(projects.length).padStart(2, "0")} ON RECORD
           </div>
 
-          {/* Carousel Viewport with Mouse Wheel Support */}
-          <div 
-            onWheel={handleWheel}
-            className="relative w-full px-4 overflow-hidden group/carousel"
-          >
-            {/* The draggable container */}
-            <motion.div
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              onDragEnd={handleDragEnd}
-              animate={{ x: `-${currentIndex * (100 / visibleCount)}%` }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="flex cursor-grab active:cursor-grabbing"
-            >
-              {data.map((item, index) => (
-                <div
-                  key={index}
-                  className="min-w-full md:min-w-[33.333333%] w-full md:w-1/3 px-2 select-none shrink-0"
-                >
-                  {isActive ? <WorkExp item={item} /> : <Port item={item} onSelect={setSelectedProject} />}
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Nav Arrows */}
-            {maxIndex > 0 && (
-              <>
-                <button
-                  onClick={handlePrev}
-                  disabled={currentIndex === 0}
-                  className={`hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-3 rounded-full z-30 transition ${
-                    currentIndex === 0
-                      ? "opacity-0 pointer-events-none"
-                      : "opacity-0 group-hover/carousel:opacity-100 hover:scale-110 cursor-pointer"
-                  }`}
-                  aria-label="Previous slide"
-                >
-                  ◀
-                </button>
-                <button
-                  onClick={handleNext}
-                  disabled={currentIndex === maxIndex}
-                  className={`hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-3 rounded-full z-30 transition ${
-                    currentIndex === maxIndex
-                      ? "opacity-0 pointer-events-none"
-                      : "opacity-0 group-hover/carousel:opacity-100 hover:scale-110 cursor-pointer"
-                  }`}
-                  aria-label="Next slide"
-                >
-                  ▶
-                </button>
-              </>
-            )}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-14 max-w-7xl mx-auto">
+            {projects.map((item, i) => (
+              <div key={item.id} className={!showAll && i >= PHONE_VISIBLE ? "hidden md:block" : ""}>
+                <CaseFile item={item} index={i} onOpen={() => setSelected({ item, index: i })} />
+              </div>
+            ))}
           </div>
 
-          {/* Dots Indicator: bounded to valid full slide views only */}
-          {maxIndex > 0 && (
-            <div className="relative z-30 flex gap-2 mt-8">
-              {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-2 rounded-full cursor-pointer transition-all ${
-                    currentIndex === idx ? "bg-white w-6" : "bg-white/30 w-2 hover:bg-white/60"
-                  }`}
-                />
-              ))}
+          {/* Phones only: open / close the rest of the drawer */}
+          {hiddenCount > 0 && (
+            <div className="md:hidden flex justify-center mt-12">
+              <button
+                type="button"
+                onClick={showAll ? collapse : () => setShowAll(true)}
+                aria-expanded={showAll}
+                className={`${typewriter.className} flex items-center gap-2 px-5 py-3 rounded-t-lg rounded-b-sm text-[11px] font-bold tracking-[0.2em] text-[#2a2418] bg-[#cdbb93] hover:brightness-105 shadow-lg cursor-pointer`}
+              >
+                {showAll ? "CLOSE THE DRAWER ▴" : `OPEN ${hiddenCount} MORE CASE FILES ▾`}
+              </button>
             </div>
           )}
+
+          {/* Employment record */}
+          <div id="experience" className="mt-24">
+            <div className={`${typewriter.className} text-center text-[11px] tracking-[0.35em] text-white/50 mb-10`}>
+              EXPERIENCE
+            </div>
+            <EmploymentRecord items={WorkExperienceDetails} />
+          </div>
         </div>
       </div>
 
-      {/* Extensive Project Case Study Modal */}
+      {/* Full case study */}
       <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        project={selected?.item}
+        fileNo={selected ? String(selected.index + 1).padStart(3, "0") : undefined}
+        onClose={() => setSelected(null)}
       />
-    </MotionFadeLeftSection>
+    </>
   );
 }

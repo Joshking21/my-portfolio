@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { User, Cpu, Layers, Send, ArrowUpRight } from "lucide-react";
+import { User, Layers, Send, ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import CursorTooltip from "../cursor";
 import Magnetic from "../ui/Magnetic";
@@ -51,7 +51,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 sm:h-20 flex justify-between items-center">
         {/* Corporate Monogram Brand */}
         <Link 
-          href="#homepage" 
+          href="/#homepage" 
           className="group flex items-center gap-2 font-bold tracking-tight text-black"
         >
           <span className="font-extrabold text-xl sm:text-2xl tracking-tighter">
@@ -90,7 +90,7 @@ export default function Navigation() {
         <div className="hidden md:flex items-center">
           <Magnetic strength={0.25}>
             <Link
-              href="#contact"
+              href="/#contact"
               className="border-x-2 border-black px-5 py-2 font-bold text-xs uppercase tracking-widest text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center gap-1.5"
             >
               <span>Let&apos;s Connect</span>
@@ -131,7 +131,7 @@ export default function Navigation() {
           })}
 
           <Link
-            href="#contact"
+            href="/#contact"
             onClick={() => setIsOpen(false)}
             className="mt-2 text-center border-x-2 border-black py-2.5 font-bold text-xs uppercase tracking-widest text-black hover:bg-black hover:text-white transition-all"
           >
@@ -176,8 +176,9 @@ function CorporateBurger({ isOpen, setIsOpen }) {
 }
 
 const NavLinks = [
-  { link: "#aboutMe", linkDetails: "About", icons: User },
-  { link: "#skills", linkDetails: "Skills", icons: Cpu },
-  { link: "#portfolio", linkDetails: "Portfolio", icons: Layers },
-  { link: "#contact", linkDetails: "Contact", icons: Send },
+  // "/#..." so the links also work from other pages (e.g. the 404 page).
+  // Same order as the sections on the page.
+  { link: "/#portfolio", linkDetails: "Portfolio", icons: Layers },
+  { link: "/#aboutMe", linkDetails: "About", icons: User },
+  { link: "/#contact", linkDetails: "Contact", icons: Send },
 ];

@@ -21,7 +21,7 @@ export default function Footer() {
 <SocialImage SocialPhotos={SocialLinkWhite}/>
             </div>
             <div>
-                 &copy; 2026 <span className="font-extrabold">J.BOBO</span> All rights reserved.
+                 &copy; {new Date().getFullYear()} <span className="font-extrabold">JayBobo</span>. All rights reserved.
             </div>
 
       </MotionFadeUpSection>

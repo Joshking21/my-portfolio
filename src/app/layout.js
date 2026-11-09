@@ -17,9 +17,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// What shows in the browser tab, Google results and link previews
+// (WhatsApp, LinkedIn, X). Update the URL once the site has its domain.
 export const metadata = {
-  title: "My Portfolio",
-  description: "Showcase of my work",
+  // Netlify sets URL automatically at build time; NEXT_PUBLIC_SITE_URL overrides it
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "http://localhost:3000"),
+  title: {
+    default: "JayBobo · Full-Stack Developer",
+    template: "%s · JayBobo",
+  },
+  description:
+    "JayBobo is a full-stack developer from Nigeria building websites, web apps and mobile apps for businesses and founders. Open to new projects, working remotely.",
+  openGraph: {
+    title: "JayBobo · Full-Stack Developer",
+    description: "Websites, web apps and mobile apps for businesses and founders. Open to new projects.",
+    images: ["/mine.PNG"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JayBobo · Full-Stack Developer",
+    description: "Websites, web apps and mobile apps for businesses and founders.",
+    images: ["/mine.PNG"],
+  },
 };
 
 export default function RootLayout({ children }) {

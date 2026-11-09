@@ -49,7 +49,8 @@ export default function TiltCard({
       style={{
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
+        // "flat" (not preserve-3d): nothing inside uses translateZ, and
+        // preserve-3d breaks mouse hit-testing on children (buttons, pills).
       }}
       whileHover={{ scale: scaleOnHover }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}

@@ -4,17 +4,10 @@ import TechTicker from "./Components/ui/TechTicker";
 import "./globals.css";
 import 'aos/dist/aos.css';
 import AboutMe from "./Components/aboutMeSection/aboutMe";
-import Skills from "./Components/skillsPage/skillsPage";
 import Portfolio from "./Components/portfolioFolder/portfolio";
 import Contacts from "./contacts/contacts";
 import Footer from "./footer/footer";
-import { Syne } from "next/font/google";
-
-const syne = Syne({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+import { syne } from "./lib/fonts";
 
 export default function Home() {
   return (
@@ -22,7 +15,6 @@ export default function Home() {
       <HomePageDetails />
       <TechTicker />
       <Portfolio />
-      <Skills />
       <AboutMe />
       <Contacts />
       <Footer />

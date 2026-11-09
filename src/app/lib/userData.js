@@ -1,51 +1,66 @@
-import { Code, User, Wrench } from "lucide-react";
+// Content for the About section: staff ID badge, memo and services quote sheet.
 
-export const AboutMeSection = {
-  AboutTitle: "About Me",
-  AboutDesc:
-    "I’m a passionate full-stack developer dedicated to helping businesses, startups, and creators transition their presence online. With engineering rigor and modern design, I turn ideas into impactful, high-performing digital solutions that scale.",
+// One place for contact details (used by the hero, contact section and form)
+export const ContactDetails = {
+  email: "joshuaoduoma@gmail.com",
+  phoneDisplay: "+234 913 117 0107",
+  phoneTel: "tel:+2349131170107",
+  whatsapp: "https://wa.me/2349131170107",
+  replyTime: "within 24 hours",
 };
 
-export const ExploreItems = [
-  {
-    title: "DEVELOPMENT",
-    badge: "CORE DISCIPLINE",
-    speech: "Building Pixel Magic 💻✨",
-    desc: "I engineer clean, high-performance web and mobile platforms that bring businesses and brands online with intuitive user experiences, fast loading times, and scalable full-stack architectures.",
-    icon: Code,
-  },
-  {
-    title: "MAINTENANCE",
-    badge: "PERFORMANCE & QA",
-    speech: "Bug Hunter & Performance 🔧🚀",
-    desc: "Beyond just building, I focus on maintaining and improving frontend systems. I troubleshoot issues, implement updates, and refine performance to keep interfaces polished and user-friendly over time.",
-    icon: Wrench,
-  },
-  {
-    title: "COLLABORATION",
-    badge: "TEAM SYNTHESIS",
-    speech: "Team Chemistry 100% 🤝🔥",
-    desc: "I thrive in collaborative environments where ideas flow and teamwork drives progress. Whether working with designers, backend developers, or fellow frontend engineers, I communicate clearly, listen actively, and contribute meaningfully to shared goals.",
-    icon: User,
-  },
-];
+// Staff ID badge (front + back)
+export const BadgeDetails = {
+  name: "JayBobo",
+  role: "Full-Stack Developer",
+  idNumber: "JB-2026",
+  photo: "/mine.PNG",
+  available: true, // shows "Open to new projects"
+  back: [
+    ["BASED IN", "Nigeria"],
+    ["WORKS", "Remotely, worldwide"],
+    ["TIMEZONE", "WAT (UTC+1)"],
+    ["LANGUAGE", "English"],
+    ["EDUCATION", "B.Tech Computer Science, FUTO (2026)"],
+    ["EXPERIENCE", "2+ years"],
+    ["AGE", "21"],
+  ],
+};
 
-export const AboutMeDetails = [
+// The bio, written as a memo
+export const AboutMemo = {
+  to: "Whoever's building something",
+  from: "JayBobo",
+  re: "Why work with me",
+  paragraphs: [
+    "I'm JayBobo, a full-stack developer from Nigeria with 2+ years of building real products. I build for clients at BunchBay and Nexa Digital, I co-founded PypeLyne, and I'm finishing my Computer Science degree at FUTO this December.",
+    "I build websites, web apps and mobile apps: everything from the screen people tap on to the server and database behind it. My go-to tools are Next.js, React Native, TypeScript, Node.js, PostgreSQL with Supabase, and Redis.",
+    "I work remotely with clients anywhere. You get clear updates, honest timelines, and a product that's fast, works on every screen and is easy to grow. I'm open to new projects right now.",
+  ],
+  // Handwritten sticky notes around the memo
+  notes: ["Off duty: snooker & video games", "Always has music on"],
+};
+
+// What clients can hire me for, each with real proof from the portfolio
+export const Services = [
   {
-    title: "Language",
-    desc: "English",
+    title: "Business websites",
+    desc: "A fast, good-looking website that brings in customers and shows up on Google.",
+    proof: ["Hertz Renewables"],
   },
   {
-    title: "Nationality",
-    desc: "Nigerian",
+    title: "Web & mobile apps",
+    desc: "From first version to launch: apps people enjoy using, on the web, iPhone and Android.",
+    proof: ["PlayPick", "PypeLyne", "FUTO Ride"],
   },
   {
-    title: "Gender",
-    desc: "Male",
+    title: "Dashboards & admin tools",
+    desc: "Admin panels where your team manages orders, users, payments and reports in one place.",
+    proof: ["Styleet admin"],
   },
   {
-    title: "Hobbies",
-    // desc : ["Coding","Working with my hands","Generator Engine Repairs","Listening to Music","Playing Video Games","Playing Snooker"]
-    desc: "Coding",
+    title: "Ongoing support",
+    desc: "Updates, fixes and new features after launch, so your product keeps getting better.",
+    proof: [],
   },
 ];
