@@ -37,8 +37,9 @@ function Front() {
         <span className="opacity-60">No. {b.idNumber}</span>
       </div>
 
-      <div className="relative mx-5 mt-3 flex-1 min-h-0 rounded-lg overflow-hidden bg-black">
-        <Image src={b.photo} alt={`${b.name}, portrait`} fill sizes="300px" className="object-cover object-top grayscale" draggable={false} />
+      {/* Portrait (3:4) ID photo, like a real badge */}
+      <div className="relative mx-auto mt-3 flex-1 min-h-0 aspect-[3/4] rounded-md overflow-hidden bg-[#e4e1da] border border-black/15 shadow-inner">
+        <Image src={b.photo} alt={`${b.name}, ID photo`} fill sizes="200px" className="object-cover object-[50%_20%]" draggable={false} />
       </div>
 
       <div className="px-5 pt-4">

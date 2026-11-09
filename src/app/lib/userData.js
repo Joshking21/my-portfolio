@@ -14,7 +14,7 @@ export const BadgeDetails = {
   name: "JayBobo",
   role: "Full-Stack Developer",
   idNumber: "JB-2026",
-  photo: "/mine.PNG",
+  photo: "/badge-photo.jpg", // real photo, ID-style crop with a plain backdrop
   available: true, // shows "Open to new projects"
   back: [
     ["BASED IN", "Nigeria"],
