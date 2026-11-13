@@ -25,7 +25,7 @@ export const BadgeDetails = {
     ["WORKS", "Remotely, worldwide"],
     ["TIMEZONE", "WAT (UTC+1)"],
     ["LANGUAGE", "English"],
-    ["EDUCATION", "B.Tech Computer Science, FUTO (2026)"],
+    ["EDUCATION", "B.Tech Computer Science, FUTO (2026), 4.2 CGPA"],
     ["EXPERIENCE", "2+ years"],
     ["AGE", "21"],
   ],
@@ -37,7 +37,7 @@ export const AboutMemo = {
   from: "JayBobo",
   re: "Why work with me",
   paragraphs: [
-    "I'm Oduoma Joshua Ogorchukwu (JayBobo to most people), a full-stack developer from Nigeria with 2+ years of building real products. I build for clients at BunchBay and Nexa Digital, I co-founded PypeLyne, and I'm finishing my Computer Science degree at FUTO this December.",
+    "I'm Oduoma Joshua Ogorchukwu (JayBobo to most people), a full-stack developer from Nigeria with 2+ years of building real products. I build for clients at BunchBay and Nexa Digital, I co-founded PypeLyne and Campus Drive (FUTO Ride), and I'm finishing my Computer Science degree at FUTO this December.",
     "I build websites, web apps and mobile apps: everything from the screen people tap on to the server and database behind it. My go-to tools are Next.js, React Native, TypeScript, Node.js, PostgreSQL with Supabase, and Redis.",
     "I work remotely with clients anywhere. You get clear updates, honest timelines, and a product that's fast, works on every screen and is easy to grow. I'm open to new projects right now.",
   ],
