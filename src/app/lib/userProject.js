@@ -45,24 +45,26 @@ export const ProjectDetails = [
     projectLink: "https://www.pype-lyne.com/",
     projectGitHubLink: "",
     projectLanguagesSource: ['/stack/react.png', '/stack/vite.svg', '/stack/supabase.svg', '/stack/postgresql.svg', '/tailWind.png'],
-    techStack: ["React + Vite", "TypeScript", "Supabase (PostgreSQL, Auth, Edge Functions)", "Tailwind CSS", "Framer Motion", "Google Gemini AI"],
+    techStack: ["React + Vite", "TypeScript", "Supabase (PostgreSQL, Auth, Edge Functions, pg_cron)", "Korapay payments", "Tailwind CSS", "Framer Motion", "Google Gemini AI"],
     overview: "PypeLyne is a social media management platform I co-founded and lead technical development on, built with Nexa Digital. Businesses connect their social accounts, write one post, and PypeLyne formats it for each platform, schedules it on a visual calendar and publishes it automatically, with AI suggesting improvements along the way. It's live, with over 50 users on board.",
     features: [
-      "Connect Facebook, Instagram, LinkedIn, X and more to one dashboard",
+      "Publish to 17 platforms from one dashboard, including Facebook, Instagram, LinkedIn, X, TikTok, YouTube and Pinterest",
       "One post in, every platform out: content is formatted automatically for each network",
       "AI suggestions for formatting, hashtags and the best time to post",
       "Visual drag-and-drop calendar for scheduling, including recurring posts",
       "Approvals and team workspaces, so whole teams can work in one place",
-      "Automatic publishing at the scheduled time"
+      "Automatic publishing at the scheduled time, run by a cron-driven scheduler",
+      "Paid plans billed through Korapay, with signature-verified payment webhooks and receipts",
+      "Security built in: row-level security on every table, two-factor login (MFA), automatic session expiry, and billing fields locked so no one can upgrade themselves for free"
     ],
-    architecture: "React + Vite + TypeScript frontend on Supabase: PostgreSQL for data, Supabase Auth for accounts, and Edge Functions that run scheduled publishing, refresh social media tokens and send workspace invites. The AI features use Google Gemini."
+    architecture: "React + Vite + TypeScript frontend on Supabase: PostgreSQL with row-level security for data, Supabase Auth with MFA for accounts, and Edge Functions for publishing, social token refresh, Korapay checkout and webhooks, and workspace invites. Postgres cron jobs run the publishing scheduler every minute, plus billing reminders and session expiry. The AI features use Google Gemini."
   },
   {
     id: "futo-ride",
     featured: true, // shown first, and the only ones visible on phones until expanded
     tagline: "A ride-hailing app that gets students to a campus keke or shuttle fast, with live tracking and arrival alerts.",
     projectName: "FUTO Ride (Campus Drive)",
-    projectDetails: "A campus ride-hailing app that connects FUTO students with kekes and shuttles, with a live map, automatic ride matching and Telegram arrival alerts.",
+    projectDetails: "A campus ride-pooling app that connects FUTO students with kekes and shuttles: live map, seat-aware matching, naira payments settled in USDC on Solana, Telegram arrival alerts and AI-triaged safety reports.",
     projectImage: "/futoRide/photo_5992566494732160226_y.jpg",
     screenshots: [
       {
@@ -95,17 +97,17 @@ export const ProjectDetails = [
     projectLink: "",
     projectGitHubLink: "https://github.com/Joshking21/futo-ride",
     projectLanguagesSource: ['/react.png', '/typeScript.png', '/nodeJs.png', '/tailWind.png'],
-    techStack: ["React Native", "Expo", "Supabase (PostgreSQL & Realtime)", "Node.js / Express", "WebSockets / Geolocation", "Telegram Bot API"],
+    techStack: ["React Native (Expo)", "TypeScript", "Fastify + Zod", "Firebase (Firestore, Auth, FCM)", "PAJ / Partna payments", "Solana (Anchor, USDC)", "Google Gemini", "Telegram Bot API"],
     overview: "FUTO Ride is a ride-hailing app for students at the Federal University of Technology Owerri (FUTO). It connects students with the campus kekes and shuttles they already use: they can watch rides move on a live map, book a seat, and get an alert when their ride is close. Drivers get their own side of the app, and trips are sent to them automatically.",
     features: [
-      "Live campus map showing where kekes and shuttles are, and how busy each area is",
-      "Automatic matching of students to drivers for trips between hostels and lecture halls",
-      "A driver app to run the current trip, follow the route and see the day's earnings",
-      "Telegram alerts that tell students when their ride is close to their building",
-      "One-tap SOS button that alerts campus security in an emergency",
-      "Book several seats at once, for solo riders or study groups"
+      "Live campus map of nearby kekes and shuttles; drivers who stop sending a heartbeat are dropped, so students never get matched to a 'ghost' keke",
+      "Seat-aware matching that pools students heading the same way into one keke, and re-matches automatically if a driver cancels",
+      "Naira bank-transfer payments through PAJ or Partna behind one provider interface, with verified webhooks, settled into a USDC treasury on Solana",
+      "On-time Telegram alerts when a ride is close, plus incident alerts sent straight to campus security",
+      "AI incident triage: Gemini rates each safety report's severity and suggests an action, with its answer schema-checked before anyone sees it",
+      "One-tap SOS, plus QR codes and completion PINs to confirm each trip"
     ],
-    architecture: "Built in React Native, with separate flows for passengers and drivers. Supabase (PostgreSQL with live updates) stores the data, and a Node.js / Express server sends driver locations to the app over WebSockets, so the map updates in under a second."
+    architecture: "Expo / React Native apps for riders and drivers, backed by a Fastify + Zod API on Firebase (Firestore, Auth and push notifications). Payments arrive as naira bank transfers through PAJ or Partna, verified by signed webhooks, and settle into a USDC treasury run by an Anchor program on Solana. Google Gemini triages safety incidents and checks driver repair-claim photos, with a human always approving any payout."
   },
   {
     id: "oga-ledger",
@@ -269,7 +271,7 @@ export const WorkExperienceDetails = [
     ExperienceName: "Co-Founder & Lead Engineer - Campus Drive (FUTO Ride)",
     ExperienceTime: "June 2026 - Present",
     ExperiencePlace: "Nigeria",
-    ExperienceDetails: "Co-founded Campus Drive and built its first product, FUTO Ride: a React Native ride-hailing app that connects FUTO students with campus kekes and shuttles, with a live map, automatic ride matching, a driver app and Telegram arrival alerts.",
+    ExperienceDetails: "Co-founded Campus Drive and built its first product, FUTO Ride: a React Native ride-pooling app that connects FUTO students with campus kekes and shuttles. I built its payment infrastructure (naira bank transfers settled in USDC on Solana), the live driver map, the seat-aware matching system and on-time Telegram alerts.",
   },
   {
     ExperienceName: "Frontend Engineer (Freelance) - BunchBay Technological Solutions Limited",

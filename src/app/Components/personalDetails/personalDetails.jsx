@@ -80,6 +80,17 @@ export default function HomePersonalDetails() {
               </Link>
             </Magnetic>
           </div>
+          {/* Recruiters / job portals often want a plain, standard CV */}
+          <p data-quiet className="-mt-7 mb-8 text-[11px] font-mono tracking-wide text-black/55">
+            Need a standard CV?{" "}
+            <a
+              href="/my-cv-ats.pdf"
+              download="Oduoma-Joshua-Ogorchukwu-CV.pdf"
+              className="underline underline-offset-4 hover:text-black transition-colors"
+            >
+              Download the plain version
+            </a>
+          </p>
         </MotionFadeInSection>
 
         <MotionFadeDownSection>

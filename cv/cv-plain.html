@@ -43,7 +43,7 @@
   .proj p { margin-top: 1px; }
   .stack { color: var(--muted); font-size: 8.2pt; margin-top: 1px; }
 
-  .skills { display: grid; grid-template-columns: 92px 1fr; gap: 2px 10px; }
+  .skills { display: grid; grid-template-columns: 110px 1fr; gap: 2px 10px; }
   .skills dt { font-weight: 600; }
 </style>
 </head>
@@ -128,13 +128,13 @@
     <div class="projects">
       <div class="proj">
         <div class="row"><span class="proj-name">PypeLyne · 50+ users</span><a class="proj-link" href="https://www.pype-lyne.com/">Live ↗</a></div>
-        <p>AI social media manager I co-founded: write one post and it is formatted, scheduled and published to Facebook, Instagram, LinkedIn and X. Gemini suggests hashtags and posting times; Edge Functions run scheduled publishing.</p>
-        <div class="stack">React · Vite · TypeScript · Supabase · Google Gemini</div>
+        <p>AI social media manager I co-founded: one post is formatted, scheduled and published to 17 platforms. Built its Korapay billing with verified webhooks, the cron-driven scheduler, Gemini features and security (RLS, MFA, session expiry).</p>
+        <div class="stack">React · TypeScript · Supabase · Korapay · Google Gemini</div>
       </div>
       <div class="proj">
         <div class="row"><span class="proj-name">FUTO Ride (Campus Drive)</span><a class="proj-link" href="https://github.com/Joshking21/futo-ride">GitHub ↗</a></div>
-        <p>Ride-hailing app for FUTO students: live campus map with sub-second driver updates over WebSockets, automatic ride matching, a driver app, Telegram arrival alerts and a one-tap SOS.</p>
-        <div class="stack">React Native · Expo · Node.js · WebSockets · Supabase</div>
+        <p>Ride-pooling app for FUTO students: live driver map, seat-aware matching, naira bank-transfer payments settled in USDC on Solana, on-time Telegram alerts and Gemini-triaged SOS reports.</p>
+        <div class="stack">Expo · TypeScript · Fastify · Firebase · Solana · Gemini</div>
       </div>
       <div class="proj">
         <div class="row"><span class="proj-name">PlayPick · 1,000+ users</span><a class="proj-link" href="https://playpick.app">Live ↗</a></div>
@@ -159,7 +159,8 @@
       <dt>Languages</dt><dd>TypeScript, JavaScript, Python, SQL, PHP, HTML, CSS</dd>
       <dt>Frontend</dt><dd>React, Next.js, Tailwind CSS, Framer Motion, TanStack Query, Zustand, Three.js</dd>
       <dt>Mobile</dt><dd>React Native, Expo</dd>
-      <dt>Backend &amp; Data</dt><dd>Node.js, Express, FastAPI, REST APIs, WebSockets, Supabase (PostgreSQL, Auth, Edge Functions, Realtime), MongoDB, MySQL, Redis</dd>
+      <dt>Backend &amp; Data</dt><dd>Node.js, Fastify, Express, Zod, FastAPI, REST APIs, webhooks, cron jobs, Supabase (PostgreSQL, Auth, Edge Functions), Firebase, MongoDB, MySQL, Redis</dd>
+      <dt>Payments &amp; Web3</dt><dd>Korapay, PAJ / Partna naira on-ramps, Solana (Anchor, USDC)</dd>
       <dt>AI / ML</dt><dd>TensorFlow / Keras, scikit-learn, Google Gemini API</dd>
       <dt>Tools</dt><dd>Git, GitHub, Vercel, Netlify, Railway, Sentry</dd>
     </dl>
