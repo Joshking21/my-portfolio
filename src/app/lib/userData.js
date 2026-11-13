@@ -1,5 +1,8 @@
 // Content for the About section: staff ID badge, memo and services quote sheet.
 
+// Real name, shown alongside the "JayBobo" brand name
+export const FullName = "Oduoma Joshua Ogorchukwu";
+
 // One place for contact details (used by the hero, contact section and form)
 export const ContactDetails = {
   email: "joshuaoduoma@gmail.com",
@@ -17,6 +20,7 @@ export const BadgeDetails = {
   photo: "/badge-photo.jpg", // real photo, ID-style crop with a plain backdrop
   available: true, // shows "Open to new projects"
   back: [
+    ["FULL NAME", "Oduoma Joshua Ogorchukwu"],
     ["BASED IN", "Nigeria"],
     ["WORKS", "Remotely, worldwide"],
     ["TIMEZONE", "WAT (UTC+1)"],
@@ -33,7 +37,7 @@ export const AboutMemo = {
   from: "JayBobo",
   re: "Why work with me",
   paragraphs: [
-    "I'm JayBobo, a full-stack developer from Nigeria with 2+ years of building real products. I build for clients at BunchBay and Nexa Digital, I co-founded PypeLyne, and I'm finishing my Computer Science degree at FUTO this December.",
+    "I'm Oduoma Joshua Ogorchukwu (JayBobo to most people), a full-stack developer from Nigeria with 2+ years of building real products. I build for clients at BunchBay and Nexa Digital, I co-founded PypeLyne, and I'm finishing my Computer Science degree at FUTO this December.",
     "I build websites, web apps and mobile apps: everything from the screen people tap on to the server and database behind it. My go-to tools are Next.js, React Native, TypeScript, Node.js, PostgreSQL with Supabase, and Redis.",
     "I work remotely with clients anywhere. You get clear updates, honest timelines, and a product that's fast, works on every screen and is easy to grow. I'm open to new projects right now.",
   ],

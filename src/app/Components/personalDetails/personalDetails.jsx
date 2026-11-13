@@ -10,7 +10,8 @@ import { FileUser, MessageSquare } from "lucide-react";
 import Magnetic from "../ui/Magnetic";
 import TiltCard from "../ui/TiltCard";
 import InkDoodles from "../ui/InkDoodles";
-import { ContactDetails } from "@/app/lib/userData";
+import DisabledSocial from "../ui/DisabledSocial";
+import { ContactDetails, FullName } from "@/app/lib/userData";
 
 const itim = Itim({ weight: "400", subsets: ["latin"] });
 
@@ -35,6 +36,9 @@ export default function HomePersonalDetails() {
           <MotionFadeRightSection>
             <div className={`font-bold text-6xl sm:text-7xl lg:text-8xl xl:text-9xl tracking-tighter leading-none ${itim.className}`}>
               JayBobo
+            </div>
+            <div data-quiet className="mt-3 text-xs sm:text-sm font-mono font-bold tracking-[0.2em] uppercase text-black/60">
+              {FullName}
             </div>
           </MotionFadeRightSection>
 
@@ -91,7 +95,7 @@ export default function HomePersonalDetails() {
           <div className="relative w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] lg:w-[390px] lg:h-[390px] xl:w-[450px] xl:h-[450px]">
             <Image
               src="/mine.PNG" 
-              alt="JayBobo Hero"
+              alt={`${FullName} (JayBobo)`}
               fill
               sizes="(max-width: 640px) 260px, (max-width: 1024px) 350px, (max-width: 1280px) 390px, 450px"
               className="z-10 object-cover object-top rounded-3xl md:grayscale md:hover:grayscale-0 transition-all duration-700 shadow-2xl"
@@ -104,16 +108,20 @@ export default function HomePersonalDetails() {
   );
 }
 
-export function SocialImage({ SocialPhotos = [] }) {
+export function SocialImage({ SocialPhotos = [], dark = false }) {
   return (
     <div className="flex items-center gap-6">
-      {SocialPhotos.map((item, index) => (
-        <Magnetic key={index} strength={0.4}>
-          <Link href={item.link} target="_blank" className="hover:-translate-y-1 transition-transform inline-block p-1">
-            <Image src={item.photosource} alt="social" width={24} height={24} className="opacity-70 hover:opacity-100 transition-opacity" />
-          </Link>
-        </Magnetic>
-      ))}
+      {SocialPhotos.map((item, index) =>
+        item.disabled ? (
+          <DisabledSocial key={index} item={item} dark={dark} />
+        ) : (
+          <Magnetic key={index} strength={0.4}>
+            <Link href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.alt.replace(" Logo", "")} className="hover:-translate-y-1 transition-transform inline-block p-1">
+              <Image src={item.photosource} alt="" width={24} height={24} className="opacity-70 hover:opacity-100 transition-opacity" />
+            </Link>
+          </Magnetic>
+        )
+      )}
     </div>
   );
 }

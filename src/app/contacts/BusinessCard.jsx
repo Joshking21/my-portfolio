@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Copy, Check, Mail, MessageCircle, Phone, ArrowUpRight } from "lucide-react";
-import { ContactDetails } from "../lib/userData";
+import { ContactDetails, FullName } from "../lib/userData";
+import DisabledSocial from "../Components/ui/DisabledSocial";
 import { SocialLinkWhite } from "../lib/userSkillsData";
 import { typewriter, handwriting } from "../lib/fonts";
 
@@ -60,6 +61,7 @@ export default function BusinessCard() {
         <div className="flex items-start justify-between">
           <div>
             <div className="text-3xl font-black tracking-tight leading-none">JayBobo</div>
+            <div className="text-xs font-semibold text-white/80 mt-1.5">{FullName}</div>
             <div className={`${typewriter.className} text-[10px] tracking-[0.25em] text-white/60 mt-2`}>FULL-STACK DEVELOPER</div>
           </div>
           <span className={`${typewriter.className} text-lg font-bold border-2 border-[#f7f5f0] px-1.5 leading-tight`}>JB</span>
@@ -95,11 +97,15 @@ export default function BusinessCard() {
             OPEN TO NEW PROJECTS
           </span>
           <div className="flex items-center gap-3">
-            {SocialLinkWhite.map((s) => (
+            {SocialLinkWhite.map((s) =>
+              s.disabled ? (
+                <DisabledSocial key={s.alt} item={s} size={18} dark />
+              ) : (
               <Link key={s.link} href={s.link} target="_blank" rel="noopener noreferrer" aria-label={s.alt.replace(" Logo", "")} className="opacity-70 hover:opacity-100 transition-opacity">
                 <Image src={s.photosource} alt="" width={18} height={18} />
               </Link>
-            ))}
+              )
+            )}
           </div>
         </div>
       </motion.div>

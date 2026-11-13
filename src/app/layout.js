@@ -27,7 +27,8 @@ export const metadata = {
     template: "%s · JayBobo",
   },
   description:
-    "JayBobo is a full-stack developer from Nigeria building websites, web apps and mobile apps for businesses and founders. Open to new projects, working remotely.",
+    "JayBobo (Oduoma Joshua Ogorchukwu) is a full-stack developer from Nigeria building websites, web apps and mobile apps for businesses and founders. Open to new projects, working remotely.",
+  authors: [{ name: "Oduoma Joshua Ogorchukwu" }],
   openGraph: {
     title: "JayBobo · Full-Stack Developer",
     description: "Websites, web apps and mobile apps for businesses and founders. Open to new projects.",

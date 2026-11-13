@@ -4,6 +4,7 @@ import { SocialLinkWhite } from "../lib/userSkillsData";
 import { SocialImage } from "../Components/personalDetails/personalDetails";
 import { MotionFadeUpSection } from "../framerMotion/motion";
 import Magnetic from "../Components/ui/Magnetic";
+import { FullName } from "../lib/userData";
 
 export default function Footer() {
   return (
@@ -18,10 +19,10 @@ export default function Footer() {
                 </Magnetic>
             </div>
             <div className="flex mt-[1rem] gap-3 mb-[1rem]">
-<SocialImage SocialPhotos={SocialLinkWhite}/>
+<SocialImage SocialPhotos={SocialLinkWhite} dark />
             </div>
             <div>
-                 &copy; {new Date().getFullYear()} <span className="font-extrabold">JayBobo</span>. All rights reserved.
+                 &copy; {new Date().getFullYear()} <span className="font-extrabold">{FullName}</span> (JayBobo). All rights reserved.
             </div>
 
       </MotionFadeUpSection>

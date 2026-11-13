@@ -164,6 +164,18 @@ export default function CaseFile({ item, index, onOpen }) {
               VISIT SITE <ArrowUpRight size={13} />
             </Link>
           )}
+          {item.projectGitHubLink && (
+            <Link
+              href={item.projectGitHubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className={`${typewriter.className} ${isLive ? "" : "ml-auto"} text-[11px] font-bold tracking-widest flex items-center gap-1 px-2.5 py-1 rounded border-2 hover:bg-[#2a2418] hover:text-[#e6d7b2] transition-colors`}
+              style={{ borderColor: INK }}
+            >
+              VIEW CODE <ArrowUpRight size={13} />
+            </Link>
+          )}
         </div>
       </div>
     </motion.article>

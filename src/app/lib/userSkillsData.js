@@ -155,11 +155,6 @@ export const LearningDetails = [
 
 export const SocialLink = [
   {
-    photosource: "/icons8-facebook.svg",
-    alt: "Facebook Logo",
-    link: "https://web.facebook.com/JoshtheOG",
-  },
-  {
     photosource: "/githubLogo.png",
     alt: "Github Logo",
     link: "https://github.com/Joshking21",
@@ -169,14 +164,16 @@ export const SocialLink = [
     alt: "Twitter Logo",
     link: "https://x.com/Joshking2105",
   },
+  {
+    photosource: "/linkedin.svg",
+    alt: "LinkedIn Logo",
+    link: "",
+    disabled: true,
+    note: "LinkedIn is unavailable for now: I'm having sign-in issues with my account. Reach me on WhatsApp or email instead.",
+  },
 ];
 
 export const SocialLinkWhite = [
-  {
-    photosource: "/facebookWhite.png",
-    alt: "Facebook Logo",
-    link: "https://web.facebook.com/JoshtheOG",
-  },
   {
     photosource: "/gitHubWhite.png",
     alt: "Github Logo",
@@ -186,5 +183,12 @@ export const SocialLinkWhite = [
     photosource: "/twitterWhite.png",
     alt: "Twitter Logo",
     link: "https://x.com/Joshking2105",
+  },
+  {
+    photosource: "/linkedinWhite.svg",
+    alt: "LinkedIn Logo",
+    link: "",
+    disabled: true,
+    note: "LinkedIn is unavailable for now: I'm having sign-in issues with my account. Reach me on WhatsApp or email instead.",
   },
 ];
