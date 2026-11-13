@@ -34,7 +34,7 @@
   .stamp small { display: block; font-size: 5.6pt; letter-spacing: .2em; font-weight: 400; }
 
   /* Sections */
-  section { margin-top: 6.5px; }
+  section { margin-top: 10px; }
   h2 { font-family: "Space Mono", monospace; font-size: 7.6pt; font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
        display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
   h2 .no { color: var(--stamp); }
@@ -42,7 +42,7 @@
   .summary { color: #2c2924; }
   b { font-weight: 700; }
 
-  .job { margin-bottom: 6px; }
+  .job { margin-bottom: 7px; }
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
   .role { font-weight: 700; font-size: 9.3pt; }
   .org { color: var(--muted); font-weight: 500; }
@@ -62,6 +62,10 @@
   .case-name { font-weight: 700; font-size: 9.4pt; }
   .case p { margin-top: 1px; font-size: 8.1pt; line-height: 1.32; }
   .stack { font-family: "Space Mono", monospace; font-size: 6.5pt; color: #5f5539; margin-top: 2px; }
+
+  .metric { color: var(--stamp); border: 1.2px solid var(--stamp); border-radius: 2px; padding: 0 3px; margin-left: 4px; font-weight: 700; letter-spacing: .1em; }
+  .also { margin-top: 5px; font-size: 8pt; }
+  .also-label { font-family: "Space Mono", monospace; font-size: 6.6pt; font-weight: 700; letter-spacing: .2em; margin-right: 6px; }
 
   /* Skills */
   .skills { display: grid; grid-template-columns: 96px 1fr; gap: 1.5px 10px; }
@@ -114,11 +118,9 @@
       </div>
       <div class="row sub">
         <div><span class="role">Co-Founder &amp; Lead Developer</span> <span class="org">· PypeLyne, built with Nexa Digital</span></div>
-        <div class="date"><a class="link" href="https://www.pype-lyne.com/">PYPE-LYNE.COM ↗</a></div>
       </div>
       <ul>
-        <li>Co-founded and lead technical development of <b>PypeLyne</b>, an AI social media manager: write one post and it is formatted, scheduled and published to Facebook, Instagram, LinkedIn and X. Live with <b>50+ users</b>.</li>
-        <li>Built it on React, Vite, TypeScript and Supabase (PostgreSQL, Auth, Edge Functions for scheduled publishing and token refresh), with Google Gemini suggesting formatting, hashtags and posting times.</li>
+        <li>Co-founded <b>PypeLyne</b> and lead its technical development end to end: architecture, frontend, Supabase backend and AI features (Case File No.001). Also build web products for Nexa's clients.</li>
       </ul>
     </div>
 
@@ -128,9 +130,7 @@
         <div class="date">JUN 2026 – PRESENT</div>
       </div>
       <ul>
-        <li>Built <b>FUTO Ride</b>, a React Native ride-hailing app connecting students at the Federal University of Technology Owerri with campus kekes and shuttles, with separate passenger and driver apps. <a class="link" href="https://github.com/Joshking21/futo-ride">GITHUB ↗</a></li>
-        <li>Delivered a live campus map with sub-second driver updates using a Node.js / Express WebSocket server and Supabase Realtime, plus automatic ride matching.</li>
-        <li>Shipped Telegram arrival alerts, multi-seat booking and a one-tap SOS that alerts campus security.</li>
+        <li>Co-founded a campus mobility startup and lead engineering on its first product, <b>FUTO Ride</b>, from the passenger and driver apps to the real-time backend (Case File No.002).</li>
       </ul>
     </div>
 
@@ -140,8 +140,7 @@
         <div class="date">DEC 2025 – PRESENT</div>
       </div>
       <ul>
-        <li>Led frontend development and UI design of <b>PlayPick</b>, a football prediction platform built for a client and now used by <b>1,000+ users</b>: live match predictions, tournaments, custom competitions and global leaderboards. <a class="link" href="https://playpick.app">PLAYPICK.APP ↗</a></li>
-        <li>Built it in Next.js, Tailwind CSS and Framer Motion, integrating the client's REST APIs for authentication, predictions and rankings.</li>
+        <li>Led frontend development and UI design of <b>PlayPick</b> for a BunchBay client, now used by <b>1,000+ users</b> (Case File No.003), integrating the client's REST APIs.</li>
       </ul>
       <div class="row sub">
         <div><span class="role">Frontend Developer Intern</span> <span class="org">· BunchBay Technological Solutions</span></div>
@@ -164,30 +163,35 @@
     <h2><span class="no">03</span> Case Files</h2>
     <div class="projects">
       <div class="case">
-        <div class="row"><span class="case-no">CASE FILE No.001</span><a class="link" href="https://github.com/Joshking21/Seizure-Prediction">GITHUB ↗</a></div>
+        <div class="row"><span class="case-no">CASE FILE No.001 <span class="metric">50+ USERS</span></span><a class="link" href="https://www.pype-lyne.com/">LIVE ↗</a></div>
+        <div class="case-name">PypeLyne <span class="org" style="font-size:8pt">(Co-Founder)</span></div>
+        <p>AI social media manager: write one post and it is formatted, scheduled and published to Facebook, Instagram, LinkedIn and X. Gemini suggests hashtags and posting times; Edge Functions run scheduled publishing.</p>
+        <div class="stack">REACT · VITE · TYPESCRIPT · SUPABASE · GEMINI</div>
+      </div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.002</span><a class="link" href="https://github.com/Joshking21/futo-ride">GITHUB ↗</a></div>
+        <div class="case-name">FUTO Ride <span class="org" style="font-size:8pt">(Campus Drive)</span></div>
+        <p>Ride-hailing app for FUTO students: live campus map with sub-second driver updates over WebSockets, automatic ride matching, a driver app, Telegram arrival alerts and a one-tap SOS.</p>
+        <div class="stack">REACT NATIVE · EXPO · NODE.JS · WEBSOCKETS · SUPABASE</div>
+      </div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.003 <span class="metric">1,000+ USERS</span></span><a class="link" href="https://playpick.app">LIVE ↗</a></div>
+        <div class="case-name">PlayPick <span class="org" style="font-size:8pt">(Client, via BunchBay)</span></div>
+        <p>Football prediction platform: fans predict live matches, join tournaments and custom competitions, and climb global leaderboards. Fast, animated UI wired to the client's backend.</p>
+        <div class="stack">NEXT.JS · TAILWIND CSS · FRAMER MOTION · REST APIS</div>
+      </div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.004</span><a class="link" href="https://github.com/Joshking21/Seizure-Prediction">GITHUB ↗</a></div>
         <div class="case-name">Seizure Prediction <span class="org" style="font-size:8pt">(Final-Year Project)</span></div>
         <p>Dual-stream CNN-LSTM ensemble that predicts epileptic seizures from scalp EEG (CHB-MIT dataset). Filters 18-channel signals, extracts 360 wavelet features and serves predictions to a live dashboard.</p>
         <div class="stack">PYTHON · TENSORFLOW · SCIKIT-LEARN · FASTAPI · NEXT.JS</div>
       </div>
-      <div class="case">
-        <div class="row"><span class="case-no">CASE FILE No.002</span><a class="link" href="https://styleet-landing-page-staging.up.railway.app/">LIVE ↗</a></div>
-        <div class="case-name">Styleet</div>
-        <p>Landing page and admin web app for a beauty-booking startup: stylist KYC, orders, payments, disputes, staff roles and reports.</p>
-        <div class="stack">NEXT.JS · TYPESCRIPT · TANSTACK · ZUSTAND · RECHARTS</div>
-      </div>
-      <div class="case">
-        <div class="row"><span class="case-no">CASE FILE No.003</span><a class="link" href="https://foosball-two.vercel.app/">LIVE ↗</a></div>
-        <div class="case-name">Lagos Foosball</div>
-        <p>Real-time multiplayer 3D table-football game for JFT Games, as lead frontend developer: online matches, private rooms and a bot with three difficulty levels.</p>
-        <div class="stack">THREE.JS · TYPESCRIPT · NODE.JS · WEBSOCKETS · REDIS</div>
-      </div>
-      <div class="case">
-        <div class="row"><span class="case-no">CASE FILE No.004</span><a class="link" href="https://www.hertzrenewables.com/">LIVE ↗</a></div>
-        <div class="case-name">Hertz Renewables</div>
-        <p>Company website for a West African solar firm, with a solar system sizing calculator and enquiry forms that send leads to sales.</p>
-        <div class="stack">NEXT.JS · TYPESCRIPT · TAILWIND CSS · VERCEL</div>
-      </div>
     </div>
+    <p class="also"><span class="also-label">ALSO BUILT</span>
+      <b>Styleet</b>, landing page &amp; admin app (Next.js) <a class="link" href="https://styleet-landing-page-staging.up.railway.app/">LIVE ↗</a> ·
+      <b>Lagos Foosball</b>, real-time 3D multiplayer game for JFT Games (Three.js) <a class="link" href="https://foosball-two.vercel.app/">LIVE ↗</a> ·
+      <b>Hertz Renewables</b>, solar company website (Next.js) <a class="link" href="https://www.hertzrenewables.com/">LIVE ↗</a>
+    </p>
   </section>
 
   <section>
