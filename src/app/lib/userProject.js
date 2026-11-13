@@ -285,9 +285,9 @@ export const WorkExperienceDetails = [
   },
   {
     ExperienceName: "Freelance Web Developer - Self-employed",
-    ExperienceTime: "2024 - May 2025",
+    ExperienceTime: "2024 - September 2025",
     ExperiencePlace: "Remote",
-    ExperienceDetails: "Designed, built and deployed websites and web apps for individual clients and small businesses, handling everything from layout to launch.",
+    ExperienceDetails: "Built websites and web apps for clients. Highlight: the admin dashboard for iRent, a house-listing platform that helps University of Benin (UNIBEN) students find houses near campus and routes house agents to them, with user management, payment tracking and finance summaries (React, Vite).",
   },
   {
     ExperienceName: "Bachelor of Technology, Computer Science - Federal University of Technology Owerri",
