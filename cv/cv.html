@@ -3,67 +3,99 @@
 <head>
 <meta charset="utf-8">
 <title>Oduoma Joshua Ogorchukwu - CV</title>
-<!-- Source for public/my-cv.pdf. Edit here, then re-render to A4 PDF. -->
+<!-- Source for public/my-cv.pdf (themed like the portfolio). Plain/ATS version: cv-plain.html -> public/my-cv-ats.pdf -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
   @page { size: A4; margin: 0; }
-  :root { --ink: #1d1b17; --muted: #5b574f; --rule: #d9d5cc; --accent: #a3241b; }
+  :root { --paper: #f7f5f0; --ink: #1d1b17; --muted: #5d5850; --rule: #cfc9bd; --stamp: #a3241b; --tan: #ece2c8; --tan-edge: #cdbb93; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Inter, Arial, sans-serif; color: var(--ink); font-size: 8.75pt; line-height: 1.35; background: #fff; }
-  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 10mm 14mm 8mm; }
+  html, body { background: var(--paper); }
+  body { font-family: Syne, Arial, sans-serif; color: var(--ink); font-size: 8.55pt; line-height: 1.36;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { position: relative; width: 210mm; height: 297mm; overflow: hidden; padding: 9mm 13mm 8mm 21mm; }
   a { color: inherit; text-decoration: none; }
 
-  header { border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 6px; }
-  h1 { font-size: 21pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
-  .title { font-size: 10.5pt; font-weight: 600; color: var(--accent); margin-top: 3px; }
-  .contact { margin-top: 6px; color: var(--muted); font-size: 8.3pt; display: flex; flex-wrap: wrap; gap: 2px 0; }
-  .contact span + span::before { content: "·"; margin: 0 7px; color: var(--rule); }
-  .contact a { color: var(--ink); font-weight: 500; }
+  /* Notebook margin line + punched holes, like the Employment Record */
+  .margin { position: absolute; left: 14mm; top: 0; bottom: 0; width: 1px; background: #e7a9a4; }
+  .hole { position: absolute; left: 6mm; width: 4.2mm; height: 4.2mm; border-radius: 50%; background: #d8d2c6; box-shadow: inset 0 1px 2px rgba(0,0,0,.25); }
 
-  section { margin-top: 9px; }
-  h2 { font-size: 8.3pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
-       border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px; }
-  .summary { color: #2e2b26; }
+  /* Header */
+  .topline { display: flex; justify-content: space-between; font-family: "Space Mono", monospace; font-size: 7pt; letter-spacing: .22em; color: var(--muted); }
+  h1 { font-size: 19.5pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin-top: 4px; }
+  .alias { font-family: Caveat, cursive; font-size: 14pt; text-transform: none; letter-spacing: 0 !important; font-weight: 600; font-weight: 600; color: var(--stamp); margin-left: 8px; letter-spacing: 0; }
+  .title { font-family: "Space Mono", monospace; font-size: 8.4pt; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-top: 3px; }
+  .contact { font-family: "Space Mono", monospace; font-size: 7pt; color: var(--muted); margin-top: 5px; display: flex; flex-wrap: wrap; }
+  .contact span + span::before { content: "/"; margin: 0 5px; color: var(--rule); }
+  .contact a { color: var(--ink); }
+  .rule { border-bottom: 2.5px solid var(--ink); margin-top: 7px; }
+  .stamp { margin-right: auto; transform: rotate(-6deg); border: 2.5px solid var(--stamp); color: var(--stamp);
+           border-radius: 4px; padding: 3px 8px; font-family: "Space Mono", monospace; font-weight: 700; font-size: 8pt; letter-spacing: .14em; opacity: .9; text-align: center; line-height: 1.25; }
+  .stamp small { display: block; font-size: 5.6pt; letter-spacing: .2em; font-weight: 400; }
 
-  .job { margin-bottom: 6px; break-inside: avoid; }
-  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .role { font-weight: 700; font-size: 9.6pt; }
-  .org { font-weight: 500; color: var(--muted); }
-  .date { color: var(--muted); font-size: 8.5pt; white-space: nowrap; }
-  .sub { margin-top: 3px; }
-  ul { margin: 3px 0 0 13px; }
+  /* Sections */
+  section { margin-top: 6.5px; }
+  h2 { font-family: "Space Mono", monospace; font-size: 7.6pt; font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
+       display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  h2 .no { color: var(--stamp); }
+  h2::after { content: ""; flex: 1; border-bottom: 1px dashed var(--rule); }
+  .summary { color: #2c2924; }
+  b { font-weight: 700; }
+
+  .job { margin-bottom: 6px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .role { font-weight: 700; font-size: 9.3pt; }
+  .org { color: var(--muted); font-weight: 500; }
+  .date { font-family: "Space Mono", monospace; font-size: 7.2pt; color: var(--muted); white-space: nowrap; letter-spacing: .04em; }
+  .current { font-family: "Space Mono", monospace; font-size: 6pt; font-weight: 700; letter-spacing: .14em; color: var(--stamp);
+             border: 1.5px solid var(--stamp); border-radius: 3px; padding: 0 4px; margin-left: 6px; display: inline-block; transform: rotate(-4deg); }
+  .sub { margin-top: 2px; }
+  ul { margin: 2px 0 0 12px; }
   li { margin-bottom: 1px; padding-left: 2px; }
-  li::marker { color: var(--muted); }
-  b { font-weight: 600; }
+  li::marker { content: "– "; color: var(--muted); }
+  .link { font-family: "Space Mono", monospace; font-size: 7pt; font-weight: 700; color: var(--stamp); }
 
-  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; }
-  .proj-name { font-weight: 700; font-size: 9.4pt; }
-  .proj-link { font-size: 8.2pt; color: var(--accent); font-weight: 500; }
-  .proj p { margin-top: 1px; }
-  .stack { color: var(--muted); font-size: 8.2pt; margin-top: 1px; }
+  /* Projects as case files */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+  .case { background: var(--tan); border: 1px solid var(--tan-edge); border-radius: 6px; padding: 5px 8px 6px; }
+  .case-no { font-family: "Space Mono", monospace; font-size: 6.3pt; letter-spacing: .2em; color: #6f6345; }
+  .case-name { font-weight: 700; font-size: 9.4pt; }
+  .case p { margin-top: 1px; font-size: 8.1pt; line-height: 1.32; }
+  .stack { font-family: "Space Mono", monospace; font-size: 6.5pt; color: #5f5539; margin-top: 2px; }
 
-  .skills { display: grid; grid-template-columns: 92px 1fr; gap: 2px 10px; }
-  .skills dt { font-weight: 600; }
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 96px 1fr; gap: 1.5px 10px; }
+  .skills dt { font-family: "Space Mono", monospace; font-size: 7pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding-top: 1px; }
+
+  /* Footer signature */
+  .sign { display: flex; justify-content: flex-end; align-items: flex-end; gap: 10px; margin-top: 2px; }
+  .sign .label { font-family: "Space Mono", monospace; font-size: 6.5pt; letter-spacing: .24em; color: var(--muted); }
+  .sign .name { font-family: Caveat, cursive; font-size: 20pt; line-height: .9; border-bottom: 1px solid var(--ink); padding: 0 8px 1px; }
 </style>
 </head>
 <body>
 <div class="page">
+  <span class="margin"></span>
+  <span class="hole" style="top: 40mm"></span>
+  <span class="hole" style="top: 146mm"></span>
+  <span class="hole" style="top: 252mm"></span>
 
   <header>
+    <div class="topline"><span>CURRICULUM VITAE · FORM JB-01</span><span>PAGE 1 / 1</span></div>
     <h1>Oduoma Joshua Ogorchukwu</h1>
-    <div class="title">Full-Stack Developer · Web &amp; Mobile</div>
+    <div class="title">Full-Stack Developer · Web &amp; Mobile<span class="alias">aka JayBobo</span></div>
     <div class="contact">
-      <span>Nigeria (Remote, UTC+1)</span>
+      <span>Nigeria · UTC+1</span>
       <span><a href="mailto:joshuaoduoma@gmail.com">joshuaoduoma@gmail.com</a></span>
       <span><a href="https://wa.me/2349131170107">+234 913 117 0107</a></span>
       <span><a href="https://jaybobo.netlify.app">jaybobo.netlify.app</a></span>
       <span><a href="https://github.com/Joshking21">github.com/Joshking21</a></span>
     </div>
+    <div class="rule"></div>
   </header>
 
   <section>
-    <h2>Profile</h2>
+    <h2><span class="no">01</span> Profile</h2>
     <p class="summary">
       Full-stack developer who builds and ships production web and mobile apps with Next.js, React Native, TypeScript,
       Node.js and Supabase. Led the frontend of <b>PlayPick</b> (1,000+ users), co-founded <b>PypeLyne</b>, an AI social
@@ -73,16 +105,16 @@
   </section>
 
   <section>
-    <h2>Experience</h2>
+    <h2><span class="no">02</span> Employment Record</h2>
 
     <div class="job">
       <div class="row">
-        <div><span class="role">Software Developer (Contract)</span> <span class="org">· Nexa Digital Ltd</span></div>
-        <div class="date">Sep 2026 – Present</div>
+        <div><span class="role">Software Developer (Contract)</span> <span class="org">· Nexa Digital Ltd</span><span class="current">CURRENT</span></div>
+        <div class="date">SEP 2026 – PRESENT</div>
       </div>
       <div class="row sub">
         <div><span class="role">Co-Founder &amp; Lead Developer</span> <span class="org">· PypeLyne, built with Nexa Digital</span></div>
-        <div class="date"><a href="https://www.pype-lyne.com/">pype-lyne.com</a></div>
+        <div class="date"><a class="link" href="https://www.pype-lyne.com/">PYPE-LYNE.COM ↗</a></div>
       </div>
       <ul>
         <li>Co-founded and lead technical development of <b>PypeLyne</b>, an AI social media manager: write one post and it is formatted, scheduled and published to Facebook, Instagram, LinkedIn and X. Live with <b>50+ users</b>.</li>
@@ -92,11 +124,11 @@
 
     <div class="job">
       <div class="row">
-        <div><span class="role">Co-Founder &amp; Lead Engineer</span> <span class="org">· Campus Drive (FUTO Ride)</span></div>
-        <div class="date">Jun 2026 – Present</div>
+        <div><span class="role">Co-Founder &amp; Lead Engineer</span> <span class="org">· Campus Drive (FUTO Ride)</span><span class="current">CURRENT</span></div>
+        <div class="date">JUN 2026 – PRESENT</div>
       </div>
       <ul>
-        <li>Built <b>FUTO Ride</b>, a React Native ride-hailing app connecting students at the Federal University of Technology Owerri with campus kekes and shuttles, with separate passenger and driver apps.</li>
+        <li>Built <b>FUTO Ride</b>, a React Native ride-hailing app connecting students at the Federal University of Technology Owerri with campus kekes and shuttles, with separate passenger and driver apps. <a class="link" href="https://github.com/Joshking21/futo-ride">GITHUB ↗</a></li>
         <li>Delivered a live campus map with sub-second driver updates using a Node.js / Express WebSocket server and Supabase Realtime, plus automatic ride matching.</li>
         <li>Shipped Telegram arrival alerts, multi-seat booking and a one-tap SOS that alerts campus security.</li>
       </ul>
@@ -104,58 +136,62 @@
 
     <div class="job">
       <div class="row">
-        <div><span class="role">Frontend Engineer (Freelance)</span> <span class="org">· BunchBay Technological Solutions, Lagos</span></div>
-        <div class="date">Dec 2025 – Present</div>
+        <div><span class="role">Frontend Engineer (Freelance)</span> <span class="org">· BunchBay Technological Solutions, Lagos</span><span class="current">CURRENT</span></div>
+        <div class="date">DEC 2025 – PRESENT</div>
       </div>
       <ul>
-        <li>Led frontend development and UI design of <b>PlayPick</b>, a football prediction platform built for a client and now used by <b>1,000+ users</b>: live match predictions, tournaments, custom competitions and global leaderboards.</li>
+        <li>Led frontend development and UI design of <b>PlayPick</b>, a football prediction platform built for a client and now used by <b>1,000+ users</b>: live match predictions, tournaments, custom competitions and global leaderboards. <a class="link" href="https://playpick.app">PLAYPICK.APP ↗</a></li>
         <li>Built it in Next.js, Tailwind CSS and Framer Motion, integrating the client's REST APIs for authentication, predictions and rankings.</li>
       </ul>
       <div class="row sub">
         <div><span class="role">Frontend Developer Intern</span> <span class="org">· BunchBay Technological Solutions</span></div>
-        <div class="date">May 2025 – Dec 2025</div>
+        <div class="date">MAY 2025 – DEC 2025</div>
       </div>
     </div>
 
     <div class="job">
       <div class="row">
         <div><span class="role">Freelance Web Developer</span> <span class="org">· Self-employed, Remote</span></div>
-        <div class="date">2024 – Sep 2025</div>
+        <div class="date">2024 – SEP 2025</div>
       </div>
       <ul>
-        <li>Built the admin dashboard for <b>iRent</b>, a platform that helps UNIBEN students find houses near campus and routes agents to them: users, payments and finance summaries (React, Vite). <a class="proj-link" href="https://github.com/Joshking21/IDashboard">GitHub ↗</a></li>
+        <li>Built the admin dashboard for <b>iRent</b>, a platform that helps UNIBEN students find houses near campus and routes agents to them: users, payments and finance summaries (React, Vite). <a class="link" href="https://github.com/Joshking21/IDashboard">GITHUB ↗</a></li>
       </ul>
     </div>
   </section>
 
   <section>
-    <h2>Selected Projects</h2>
+    <h2><span class="no">03</span> Case Files</h2>
     <div class="projects">
-      <div class="proj">
-        <div class="row"><span class="proj-name">Seizure Prediction (Final-Year Project)</span><a class="proj-link" href="https://github.com/Joshking21/Seizure-Prediction">GitHub ↗</a></div>
-        <p>Dual-stream CNN-LSTM ensemble that predicts epileptic seizures from scalp EEG (CHB-MIT dataset). Filters 18-channel signals, extracts 360 wavelet features, and serves predictions to a live dashboard.</p>
-        <div class="stack">Python · TensorFlow · scikit-learn · FastAPI · Next.js · Recharts</div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.001</span><a class="link" href="https://github.com/Joshking21/Seizure-Prediction">GITHUB ↗</a></div>
+        <div class="case-name">Seizure Prediction <span class="org" style="font-size:8pt">(Final-Year Project)</span></div>
+        <p>Dual-stream CNN-LSTM ensemble that predicts epileptic seizures from scalp EEG (CHB-MIT dataset). Filters 18-channel signals, extracts 360 wavelet features and serves predictions to a live dashboard.</p>
+        <div class="stack">PYTHON · TENSORFLOW · SCIKIT-LEARN · FASTAPI · NEXT.JS</div>
       </div>
-      <div class="proj">
-        <div class="row"><span class="proj-name">Styleet</span><a class="proj-link" href="https://styleet-landing-page-staging.up.railway.app/">Live ↗</a></div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.002</span><a class="link" href="https://styleet-landing-page-staging.up.railway.app/">LIVE ↗</a></div>
+        <div class="case-name">Styleet</div>
         <p>Landing page and admin web app for a beauty-booking startup: stylist KYC, orders, payments, disputes, staff roles and reports.</p>
-        <div class="stack">Next.js · TypeScript · TanStack Query &amp; Table · Zustand · Recharts · Sentry</div>
+        <div class="stack">NEXT.JS · TYPESCRIPT · TANSTACK · ZUSTAND · RECHARTS</div>
       </div>
-      <div class="proj">
-        <div class="row"><span class="proj-name">Lagos Foosball</span><a class="proj-link" href="https://foosball-two.vercel.app/">Live ↗</a></div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.003</span><a class="link" href="https://foosball-two.vercel.app/">LIVE ↗</a></div>
+        <div class="case-name">Lagos Foosball</div>
         <p>Real-time multiplayer 3D table-football game for JFT Games, as lead frontend developer: online matches, private rooms and a bot with three difficulty levels.</p>
-        <div class="stack">Three.js · TypeScript · Node.js · WebSockets · Redis</div>
+        <div class="stack">THREE.JS · TYPESCRIPT · NODE.JS · WEBSOCKETS · REDIS</div>
       </div>
-      <div class="proj">
-        <div class="row"><span class="proj-name">Hertz Renewables</span><a class="proj-link" href="https://www.hertzrenewables.com/">Live ↗</a></div>
+      <div class="case">
+        <div class="row"><span class="case-no">CASE FILE No.004</span><a class="link" href="https://www.hertzrenewables.com/">LIVE ↗</a></div>
+        <div class="case-name">Hertz Renewables</div>
         <p>Company website for a West African solar firm, with a solar system sizing calculator and enquiry forms that send leads to sales.</p>
-        <div class="stack">Next.js · TypeScript · Tailwind CSS · Vercel</div>
+        <div class="stack">NEXT.JS · TYPESCRIPT · TAILWIND CSS · VERCEL</div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Skills</h2>
+    <h2><span class="no">04</span> Skills</h2>
     <dl class="skills">
       <dt>Languages</dt><dd>TypeScript, JavaScript, Python, SQL, PHP, HTML, CSS</dd>
       <dt>Frontend</dt><dd>React, Next.js, Tailwind CSS, Framer Motion, TanStack Query, Zustand, Three.js</dd>
@@ -167,14 +203,15 @@
   </section>
 
   <section>
-    <h2>Education</h2>
+    <h2><span class="no">05</span> Education</h2>
     <div class="row">
       <div><span class="role">B.Tech, Computer Science</span> <span class="org">· Federal University of Technology Owerri (FUTO)</span></div>
       <div class="date">2022 – 2026</div>
     </div>
-    <p style="margin-top:2px">CGPA 4.2 / 5.0, Second Class Upper (graduating December 2026). Final-year project: EEG-based seizure prediction with deep learning.</p>
+    <p style="margin-top:1px">CGPA 4.2 / 5.0, Second Class Upper (graduating December 2026). Final-year project: EEG-based seizure prediction with deep learning.</p>
   </section>
 
+  <div class="sign"><div class="stamp">OPEN TO WORK<small>REMOTE · FREELANCE</small></div><span class="label">SIGNED</span><span class="name">JayBobo</span></div>
 </div>
 </body>
 </html>
