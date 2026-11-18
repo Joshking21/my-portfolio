@@ -230,6 +230,38 @@ export const ProjectDetails = [
     architecture: "Uses Next.js server components, so less code is sent to the visitor's browser and the site scores well on Google's speed checks (Core Web Vitals)."
   },
   {
+    id: "ifeyinwa-pastries",
+    tagline: "An ordering website for a home bakery in Jos: browse the menu, build a party pack, and check out straight to WhatsApp.",
+    projectName: "Ifeyinwa Pastries",
+    projectDetails: "A mobile-first ordering website for Ifeyinwa Pastries, a home bakery in Jos, Nigeria. Customers browse pastries, small chops and cakes, build party packs, request custom cakes and send the whole order to the bakery on WhatsApp.",
+    projectImage: "/projects/ifeyinwa.jpg",
+    gallery: [
+      { src: "/projects/ifeyinwa.jpg", caption: "Homepage", kind: "web" },
+      { src: "/projects/ifeyinwa-mobile.jpg", caption: "On mobile", kind: "phone" },
+      { src: "/projects/ifeyinwa-product.jpg", caption: "Product detail: whole and cut-open views", kind: "web" },
+      { src: "/projects/ifeyinwa-party-pack.jpg", caption: "Party pack builder with live pricing", kind: "web" },
+      { src: "/projects/ifeyinwa-cakes.jpg", caption: "Custom cake request form", kind: "web" },
+    ],
+    note: "Live: orders go straight to WhatsApp",
+    projectContribution: "DESIGNER & DEVELOPER",
+    role: "Frontend Developer & UI Designer",
+    projectLink: "https://ifeyinwa-pastry.netlify.app/",
+    projectGitHubLink: "",
+    projectLanguagesSource: ['/stack/react.png', '/stack/vite.svg', '/typeScript.png', '/tailWind.png', '/stack/framer.svg'],
+    techStack: ["React 19 + Vite", "TypeScript", "Tailwind CSS v4", "Framer Motion", "WhatsApp ordering", "Netlify hosting"],
+    overview: "Ifeyinwa Pastries is a home bakery in Jos, Plateau State, that takes its orders on WhatsApp. I designed and built a website that works like a shop window and an order form in one: customers browse the menu, fill a basket, and the site turns it into a neat, priced WhatsApp message for the bakery, so there's no back-and-forth over what was ordered or what it costs.",
+    features: [
+      "A menu of 15 items with category filters, and a detail view for each pastry showing it whole and cut open, with its filling, size and pack options",
+      "Party pack builder: pick 50, 100 or 200 pieces, tick the small chops you want, and watch the price update live",
+      "Custom cake request form that checks the 3-day notice period and sends a structured enquiry on WhatsApp",
+      "Basket with delivery or pickup, address, date and kitchen notes; checkout opens WhatsApp with the full order and total ready to send",
+      "The basket is saved in the browser, so customers don't lose their order if they leave the page",
+      "Four colour themes (Classic Caramel, Cocoa Night, Strawberry Cream and Pistachio), plus playful touches like items flying into the basket and confetti",
+      "Built mobile-first: works down to 360px wide, 44px tap targets, keyboard support and reduced-motion support"
+    ],
+    architecture: "A static React 19 single-page app built with Vite and TypeScript, styled with Tailwind CSS v4 and animated with Framer Motion. The cart and theme live in React context and are saved to localStorage. There's no backend to run: every order, party pack and cake request is formatted into a WhatsApp message (wa.me link), which suits how the bakery already works. Hosted on Netlify."
+  },
+  {
     id: "lagos-foosball",
     featured: true, // shown first, and the only ones visible on phones until expanded
     tagline: "A 3D table-football game for two: play a real person online, a bot, or a friend with a private room code.",
